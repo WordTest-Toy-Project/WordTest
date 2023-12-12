@@ -11,6 +11,7 @@ import Mypage from './pages/mypage/Mypage';
 import Study from './pages/study/Study';
 import Favorite from './pages/favorite/Favorite';
 
+
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/favorite" element={<Favorite/>} />
       </Routes>
     </Router>
+
   );
 }
 

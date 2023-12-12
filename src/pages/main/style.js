@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const GrayBox = styled.button`
     background-color: black;
     border-radius: 20px;
@@ -25,8 +26,8 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  
 `;
 export const Yellow = styled.span`
     color : yellow;

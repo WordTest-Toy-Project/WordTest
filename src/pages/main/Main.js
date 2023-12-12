@@ -4,6 +4,7 @@ import {TodayLearn, TodayTest} from './style';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 export default function Main() {
     return (
       <div>
@@ -11,7 +12,8 @@ export default function Main() {
           <Link to="/mypage">
             <SettingBox>
               <img src="/image/gear.png" alt="sorry" width={90} height={90}></img>
-            </SettingBox>  
+            </SettingBox> 
+            
           </Link>
 
           <WordTest>Word Test</WordTest>
@@ -28,7 +30,7 @@ export default function Main() {
           </Link>
 
           <Link to="/test">
-            <TodayTest>오늘의 <Yellow>학습</Yellow></TodayTest>
+            <TodayTest>오늘의 <Yellow>Test</Yellow></TodayTest>
           </Link>
          
         </Container>

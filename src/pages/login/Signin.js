@@ -12,7 +12,7 @@ export default function Signin() {
       <>
         <Title />
         <Desc>간단한 테스트 시작하기</Desc>
-        <InputContainer>
+        <InputContainer childCount={2}>
           <LoginInput type={"text"} placeholder={"ID 입력"}/>
           <LoginInput type={"password"} placeholder={"Password 입력"}/>
         </InputContainer>

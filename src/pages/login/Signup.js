@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Desc,
   InputContainer
@@ -8,11 +9,12 @@ import Title from "../../components/title/Title";
 import Fotter from "../../components/footer/Footer";
 
 export default function Signup() {
+  const childCount = 3;
     return (
       <>
         <Title />
         <Desc>간단한 테스트 시작하기</Desc>
-        <InputContainer childCount={3}>
+        <InputContainer childCount={childCount}>
           <LoginInput type={"text"} placeholder={"ID 입력"}/>
           <LoginInput type={"password"} placeholder={"Password 입력"}/>
           <LoginInput type={"password"} placeholder={"Password 재입력"}/>

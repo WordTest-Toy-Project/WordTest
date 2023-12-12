@@ -1,5 +1,10 @@
+import Table from '../../components/table/table';
+
 export default function Study() {
     return (
-      <>Study</>
+      <>
+        <Table />
+        Study
+      </>
     );
   }

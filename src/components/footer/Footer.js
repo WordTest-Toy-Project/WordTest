@@ -4,6 +4,8 @@ import {
   BottomDiv,
 } from './style';
 
+import { Link } from 'react-router-dom';
+
 export default function Footer({desc, signup}){
   return (
     <>
@@ -13,7 +15,9 @@ export default function Footer({desc, signup}){
         <Hr/>
       </Div>
       <BottomDiv>
-        <div style={{color: "white", fontSize: "25px"}}>{signup}</div>
+        <Link to= {signup === "Login" ? '/' : '/signup'}>
+          <div style={{color: "white", fontSize: "25px"}}>{signup}</div>
+        </Link>
         <div></div>
         <div></div>
       </BottomDiv>

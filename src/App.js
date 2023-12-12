@@ -1,8 +1,8 @@
 //library
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //pages
-import Signin from './pages/signin/Signin';
-import Signup from './pages/signup/Signup';
+import Signin from './pages/login/Signin';
+import Signup from './pages/login/Signup';
 import Main from './pages/main/Main';
 import Test from './pages/test_page/Test';
 import TestStart from './pages/test_start/Test_start';

@@ -1,3 +1,20 @@
 body {
     background-color: black;
+    align-items: center;   
+}
+h1 {
+    color:white;
+    font-size: 150px;
+   text-align: center;   
+}
+.signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: 10px;
+    border: 20px;
+    border-radius: 10px 10px 10px 10px;
+    width: 200px;
+    
 }

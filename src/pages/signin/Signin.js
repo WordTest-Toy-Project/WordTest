@@ -1,5 +1,9 @@
+import { Container } from './style';
+
 export default function Signin() {
     return (
-      <>Signin</>
+      <Container>
+        Signin
+      </Container>
     );
   }

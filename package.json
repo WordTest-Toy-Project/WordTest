@@ -40,5 +40,9 @@
   "description": "This is a toy project\r # Getting Started with Create React App",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2"
+  }
 }

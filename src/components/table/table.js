@@ -4,8 +4,10 @@ import {
   Row1,
   Row2,
   Row3,
-  Image
+  Img
 } from './style';
+
+import { useState } from 'react';
 
 export default function Table(){
   const sampleJson = [
@@ -34,14 +36,13 @@ export default function Table(){
       mean: "방"
     },
   ]
-
+  
   return (
     <>
       {sampleJson.map((test) => (
         <TableContainer key={test.id}>
           <Row0>
-            <Image 
-          $scrapState={test.scrap} />
+          <Image />
           </Row0>
           <Row1>{test.word}</Row1>
           <Row2>{test.mean}</Row2>
@@ -49,5 +50,17 @@ export default function Table(){
         </TableContainer>
       ))}
     </>
+  );
+}
+
+function Image(){
+  const [scrap, setScrap] = useState(false);
+  function scrapHandler(){
+    setScrap(!scrap);
+  }
+  return(
+    <Img 
+      $scrapState={scrap}
+      onClick={scrapHandler}/>
   );
 }

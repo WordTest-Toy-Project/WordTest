@@ -1,3 +1,4 @@
+
 import Header from "../../components/header/Header";
 
 export default function Test() {
@@ -6,4 +7,4 @@ export default function Test() {
         <Header></Header>
       </>
     );
-  }
+}

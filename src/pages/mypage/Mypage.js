@@ -9,6 +9,7 @@ import { Bottom } from "./style";
 import { BottomButton } from "./style";
 import { Link } from 'react-router-dom';
 import { WordAndMean } from "./style";
+import { Img } from "./style";
 export default function Mypage() {
     return (
       <>
@@ -30,8 +31,8 @@ export default function Mypage() {
         <Horizon></Horizon> 
         
         <WordAndMean>
-          <Extra>단어/뜻</Extra>
-          <img src="/image/switch.svg" width={60} height={60}></img>
+          <Extra style={{marginLeft: 150+"px"}}>단어/뜻</Extra>
+            <Img src="/image/switch.svg"></Img>
         </WordAndMean>
         
         <Bottom>

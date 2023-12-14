@@ -11,6 +11,6 @@ export const InputContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: ${props => (props.childCount === 3 ? '310px' : '400px')};
+  margin-top: ${props => (props.$childCount === 3 ? '310px' : '400px')};
   gap: 20px;
 `;

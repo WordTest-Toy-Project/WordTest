@@ -11,7 +11,7 @@ export default function WordTable({sampleJson}){
     <WordContainer>
       <Text />
       <TableContainer>
-        <Table sampleJson={sampleJson}/>
+        <Table $sampleJson={sampleJson}/>
       </TableContainer>
     </WordContainer>
   );

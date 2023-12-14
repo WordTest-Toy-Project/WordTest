@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { getCookie } from '../Cookies/Cookies';
-import { useNavigate } from 'react-router-dom';
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_LOCAL_URL,

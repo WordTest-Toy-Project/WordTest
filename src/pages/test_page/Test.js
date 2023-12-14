@@ -1,10 +1,10 @@
-import Header from "../../components/header/Header.js"
+
+import Header from "../../components/header/Header";
 
 export default function Test() {
     return (
-      <Header>
-      
-      </Header>
-      
+      <>
+        <Header></Header>
+      </>
     );
-  }
+}

@@ -20,7 +20,7 @@ export const InputBlock = styled.div`
 `;
 export const WordAndMeanBlock = styled(HorizonBlock)`
     margin-top: 0px;
-   gap:30px;
+    gap:30px;
 `;
 
 export const InputText = styled.input`
@@ -32,6 +32,12 @@ export const InputText = styled.input`
     font-size: 30px;
     text-align:center;
     
+`;
+
+export const WordAndMeanInput =styled(InputText)`
+    width:350px;
+    height:40px;
+    font-size:40px;
 `;
 export const NumInput = styled(InputText)`
     width:110px;

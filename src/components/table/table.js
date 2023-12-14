@@ -13,27 +13,83 @@ export default function Table(){
   const sampleJson = [
     {
       id: 0,
-      scrap: true,
       word: "Apple",
       mean: "사과"
     },
     {
       id: 1,
-      scrap: true,
       word: "Banana",
       mean: "바나나"
     },
     {
       id: 2,
-      scrap: false,
       word: "Chicken",
       mean: "치킨"
     },
     {
       id: 3,
-      scrap: true,
       word: "Room",
       mean: "방"
+    },
+    {
+      id: 4,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 5,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 6,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 7,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 8,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 9,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 10,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 11,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 12,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 13,
+      word: "Room",
+      mean: "방"
+    },
+    {
+      id: 14,
+      word: "Cup",
+      mean: "컵"
+    },
+    {
+      id: 15,
+      word: "Cup",
+      mean: "컵"
     },
   ]
   

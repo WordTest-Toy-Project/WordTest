@@ -45,7 +45,10 @@ export const Horizon = styled.hr`
 
 export const Extra =styled(Text)`
     font-size:40px;
-    text-decoration:none;
+    
+    :hover{
+        text-decoration:none;
+    }
 `;
 
 export const Bottom = styled.div`
@@ -54,9 +57,16 @@ export const Bottom = styled.div`
 
 `;
 export const WordAndMean = styled.div`
-    display: inline-block;
+    display: flex;
+    flex-direction:row;
+    
 `;
-
+export const Img = styled.img`
+    width:60px;
+    height:60px;
+    margin-top:40px;
+    margin-left:100px
+`;
 export const BottomButton = styled(GrayBox)`
     color:white;
     font:50px bold;

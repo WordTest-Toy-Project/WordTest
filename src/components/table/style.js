@@ -58,7 +58,7 @@ export const Rows3 = styled(Row)`
   width: 100px;
 `;
 
-export const Image = styled.img`
+export const Img = styled.img`
   width: 40px;
   height: 40px;
   background-repeat: no-repeat;

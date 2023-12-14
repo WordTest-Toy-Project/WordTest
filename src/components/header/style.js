@@ -23,11 +23,3 @@ export const GearButton = styled(GrayBox)`
     top:10px;
     right:10px;  
 `;
-export const WordTest = styled.h1`
-    position:absolute;
-    color : white;
-    text-align: center;
-    font-size: 100px;
-    top:80px;
-  
-`;

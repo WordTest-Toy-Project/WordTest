@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Horizon = styled.hr`
     border: 3px solid #B6B3B3;
     width: 400px;
-    margin-top: 450px;
+    margin-top: 400px;
 `;
 
 export const HorizonBlock = styled.div`
@@ -18,13 +18,16 @@ export const InputBlock = styled.div`
     top:380px;
     
 `;
-
+export const WordAndMeanBlock = styled(HorizonBlock)`
+    margin-top: 0px;
+   gap:30px;
+`;
 
 export const InputText = styled.input`
     border:none;
     border-bottom: 3px solid #B6B3B3;
     margin:0;
-    background-color: #262626;
+    background-color: #0C0C0D;
     color: white;
     font-size: 30px;
     text-align:center;

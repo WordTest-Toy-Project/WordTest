@@ -10,7 +10,7 @@ export default function Header(){
     return (
         <div style={{height: "100px"}}>
             <HeaderWrap>
-                <Title title={"Word Test"}/>
+                <Title title={"Word Test"} />
                 <Link to="/main">
                     <BackButton>
                         <Img src="/image/back_arrow.svg"></Img>

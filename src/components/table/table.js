@@ -7,7 +7,7 @@ import {
   Image
 } from './style';
 
-export default function table(){
+export default function Table(){
   const sampleJson = [
     {
       id: 0,

@@ -19,3 +19,17 @@ export const Result = styled.div`
   color: #B6B3B3;
   padding: 0 20px;
 `;
+
+export const WrongWord = styled.div`
+  display: flex;
+  width: 800px;
+  gap: 30px;
+  color: #B6B3B3;
+  font-size: 30px;
+  margin: 0 auto;
+`;
+
+export const WordLength = styled.div`
+  width: 300px;
+  color: white;
+`;

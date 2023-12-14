@@ -1,5 +1,9 @@
+import Header from "../../components/header/Header";
+
 export default function Test() {
     return (
-      <>Test</>
+      <>
+        <Header></Header>
+      </>
     );
   }

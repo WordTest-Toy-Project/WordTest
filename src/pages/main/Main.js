@@ -1,6 +1,16 @@
-import { Container, Horizon, SettingBox, TodayWord, Yellow } from './style';
-import { WordTest , RandomWord,WordContainer } from './style';
-import {TodayLearn, TodayTest} from './style';
+import { 
+  Container,
+  Horizon, 
+  SettingBox, 
+  TodayWord, 
+  Yellow,
+  WordTest,
+  RandomWord,
+  WordContainer,
+  TodayLearn,
+  TodayTest,
+} from './style';
+//library
 import React from 'react';
 import { Link } from 'react-router-dom';
 

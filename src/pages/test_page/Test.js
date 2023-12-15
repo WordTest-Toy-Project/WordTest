@@ -1,16 +1,26 @@
+//library
+import { Link } from "react-router-dom";
 
+import {
+  BottomRow,  
+  ExampleInput,  
+  HorizonBlock,
+  NumInput,
+  Text,
+  InputBlock,
+  WordAndMeanBlock,
+  WordAndMeanInput,
+}  from "./style";
+//components
 import Header from "../../components/header/Header";
 import  PuppleInputButton  from "../../components/button/PuppleButton/PuppleInputButton";
-import {BottomRow,  ExampleInput,  HorizonBlock}  from "./style";
-import { NumInput ,Text, InputBlock} from "./style";
-import { WordAndMeanBlock,WordAndMeanInput } from "./style";
-import { Link } from "react-router-dom";
+import Title from '../../components/title/Title';
 
 export default function Test() {
     return (
       <>
         <Header/>
-        
+        <Title title={"Word Test"}/>
         <InputBlock >
           <Text style={{position:"absolute", top:"-60px"}}>문제 수 입력</Text>
           <NumInput type={"text"} maxLength={3}></NumInput>
@@ -37,7 +47,7 @@ export default function Test() {
           </div>
           
         </WordAndMeanBlock>
-
+        
         <BottomRow>
           <PuppleInputButton 
             type={"button"}
@@ -53,7 +63,7 @@ export default function Test() {
             height={90+"px"} 
             fontsize={29+"px"}/>
 
-          <Link to="/test_start">
+          <Link to="/test-start">
             <PuppleInputButton 
             type={"submit"}
             title={"시작"} 

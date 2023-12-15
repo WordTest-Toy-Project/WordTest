@@ -87,7 +87,7 @@ export default function Study() {
   ]
     return (
       <>
-        <Header />
+        <Header $back={true} $title={true} $addWord={true} $gear={false}/>
         <WordTable sampleJson={sampleJson}/>
       </>
     );

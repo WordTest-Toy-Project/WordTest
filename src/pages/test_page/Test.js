@@ -19,7 +19,7 @@ import Title from '../../components/title/Title';
 export default function Test() {
     return (
       <>
-        <Header/>
+        <Header $back={true} $title={false} $addWord={false} $gear={true}/>
         <Title title={"Word Test"}/>
         <InputBlock >
           <Text style={{position:"absolute", top:"-60px"}}>문제 수 입력</Text>
@@ -51,36 +51,22 @@ export default function Test() {
         <BottomRow>
           <PuppleInputButton 
             type={"button"}
-            title={"등록"} 
-            width={200+"px"} 
-            height={90+"px"} 
-            fontsize={35+"px"}/> 
+            title={"등록"} /> 
             
           <PuppleInputButton 
             type={"button"}
-            title={"입력 추가"} 
-            width={200+"px"} 
-            height={90+"px"} 
-            fontsize={29+"px"}/>
+            title={"입력 추가"} />
 
           <Link to="/test-start">
             <PuppleInputButton 
             type={"submit"}
-            title={"시작"} 
-            width={200+"px"} 
-            height={90+"px"} 
-            fontsize={35+"px"}/>
+            title={"시작"} />
           </Link>
 
           <PuppleInputButton 
             type={"button"}
-            title={"초기화"} 
-            width={200+"px"} 
-            height={90+"px"} 
-            fontsize={35+"px"}/>
+            title={"초기화"} />
         </BottomRow>
-
-
       </>
     );
 }

@@ -46,7 +46,8 @@ export default function Signin() {
 
   return (
     <>
-      <Title title={"Word Test"}/>
+      <div style={{height: "50px"}}></div>
+      <Title title={"Word Test"} />
       <Desc>간단한 테스트 시작하기</Desc>
       <InputContainer $childCount={childCount}>
         <LoginInput type={"text"} placeholder={"ID 입력"}

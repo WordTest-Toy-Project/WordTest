@@ -26,7 +26,7 @@ export default function Favorite() {
   ]
     return (
       <>
-        <Header />
+        <Header $back={true} $title={true} $addWord={false} $gear={false}/>
         <Title>즐겨찾기 <span style={{color: "yellow"}}>단어</span></Title>
         <WordTable sampleJson={sampleJson}/>
       </>

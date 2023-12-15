@@ -47,6 +47,7 @@ export default function Signup() {
   };
     return (
       <>
+        <div style={{height: "50px"}}></div>
         <Title title={"Word Test"}/>
         <Desc>간단한 테스트 시작하기</Desc>
         <InputContainer $childCount={childCount}>

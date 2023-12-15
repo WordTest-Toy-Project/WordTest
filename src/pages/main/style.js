@@ -5,19 +5,12 @@ export const GrayBox = styled.button`
     border-radius: 20px;
     border: 10px solid #4C494F;
 `;
-export const SettingBox = styled(GrayBox)`
-    width:125px;
-    height:125px;
-    position:absolute;
-    top:10px;
-    right:10px;
-`;
 
 export const WordTest = styled.h1`
     color : white;
     text-align: center;
     font-size: 100px;
-    margin-bottom:250px;
+    margin-bottom:100px;
 `;
 
 export const Container = styled.div`

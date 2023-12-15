@@ -12,18 +12,11 @@ export const InputText = styled.input`
 
 export const Text = styled.p`
     color : #B6B3B3;
-    font-size:30px;
-    
-    margin-left:15px;
-    margin-top:-130px;
+    font-size:50px;
+    padding-left: 20px; 
+    margin: 0;
 `;
-export const InputBlock = styled.div`
-    display:flex;
-    position: absolute;
-    left:20px;
-    top:350px;
-    
-`;
+
 export const BottomRow = styled.div`
     position: fixed;
     display:flex;
@@ -47,5 +40,4 @@ export const WordOrMeanBlock = styled.div`
     justify-content:center;
     display:flex;
     flex-direction:column;
-    margin-top:130px;
 `;

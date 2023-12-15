@@ -1,7 +1,6 @@
 import { 
   Container,
   Horizon, 
-  SettingBox, 
   TodayWord, 
   Yellow,
   WordTest,
@@ -13,18 +12,15 @@ import {
 //library
 import React from 'react';
 import { Link } from 'react-router-dom';
+//components
+import Header from '../../components/header/Header';
 
 
 export default function Main() {
     return (
       <div>
         <Container>
-          <Link to="/mypage">
-            <SettingBox>
-              <img src="/image/gear.png" alt="sorry" width={90} height={90}></img>
-            </SettingBox> 
-            
-          </Link>
+          <Header $back={false} $title={false} $addWord={false} $gear={true} />
 
           <WordTest>Word Test</WordTest>
 

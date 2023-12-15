@@ -33,3 +33,15 @@ export const WordLength = styled.div`
   width: 300px;
   color: white;
 `;
+
+export const BottomRow = styled.div`
+    position: fixed;
+    display:flex;
+    gap:50px;
+    bottom: 10px;
+    margin-left:72px;
+    margin-right:72px;
+    justify-content:right;
+    align-items:center;
+    width:90%
+`;

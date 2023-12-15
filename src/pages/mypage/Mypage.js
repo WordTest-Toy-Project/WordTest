@@ -1,4 +1,5 @@
 import Title from "../../components/title/Title";
+import Header from '../../components/header/Header';
 
 import { 
   IdBox,
@@ -10,7 +11,6 @@ import {
   BottomButton,
   WordAndMean,
   Img,
-  BackButton
 } from "./style";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
@@ -29,11 +29,7 @@ export default function Mypage() {
     return (
       <>
       <Div>
-        <Link to="/main">
-          <BackButton>
-            <img src="/image/back_arrow.svg" width={90} height={90}></img>
-          </BackButton>
-        </Link>
+        <Header $back={true} $title={false} $addWord={false} $gear={false}/>
 
         <Title title={"My Page"}></Title>
 

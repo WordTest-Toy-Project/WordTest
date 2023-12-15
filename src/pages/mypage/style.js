@@ -8,13 +8,7 @@ export const Div = styled.div`
     flex-direction: column;
     align-items: center;
 `;
-export const BackButton = styled(GrayBox)`
-    width:120px;
-    height:120px;
-    position:absolute;
-    top:10px;
-    left:10px;
-`;
+
 export const IdBox = styled(GrayBox)`   
     font-size: 100px;
     color: white;

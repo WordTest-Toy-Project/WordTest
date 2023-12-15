@@ -36,7 +36,7 @@ export const InputText = styled.input`
 export const ExampleInput = styled(InputText)`
     width:400px;
     font-size:25px;
-    margin-top: 400px;
+    margin-top: 200px;
     text-align:left;
     margin-left:50px;
     margin-right:50px;

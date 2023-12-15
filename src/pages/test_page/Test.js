@@ -34,16 +34,16 @@ export default function Test() {
 
         <WordAndMeanBlock>
           <div>
-           <WordAndMeanInput></WordAndMeanInput>
-           <WordAndMeanInput></WordAndMeanInput>
+            <WordAndMeanInput></WordAndMeanInput>
+            <WordAndMeanInput></WordAndMeanInput>
           </div>
           <div>
-           <WordAndMeanInput></WordAndMeanInput>
-           <WordAndMeanInput></WordAndMeanInput>
+            <WordAndMeanInput></WordAndMeanInput>
+            <WordAndMeanInput></WordAndMeanInput>
           </div>
           <div>
-           <WordAndMeanInput></WordAndMeanInput>
-           <WordAndMeanInput></WordAndMeanInput>
+            <WordAndMeanInput></WordAndMeanInput>
+            <WordAndMeanInput></WordAndMeanInput>
           </div>
           
         </WordAndMeanBlock>

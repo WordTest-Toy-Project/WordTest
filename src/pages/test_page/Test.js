@@ -33,17 +33,17 @@ export default function Test() {
         </HorizonBlock>
 
         <WordAndMeanBlock>
-          <div>
-            <WordAndMeanInput></WordAndMeanInput>
-            <WordAndMeanInput></WordAndMeanInput>
+          <div style={{display:"flex",flexDirection:"row"}}>
+           <WordAndMeanInput></WordAndMeanInput>
+           <WordAndMeanInput></WordAndMeanInput>
           </div>
-          <div>
-            <WordAndMeanInput></WordAndMeanInput>
-            <WordAndMeanInput></WordAndMeanInput>
+          <div style={{display:"flex",flexDirection:"row"}}>
+           <WordAndMeanInput></WordAndMeanInput>
+           <WordAndMeanInput></WordAndMeanInput>
           </div>
-          <div>
-            <WordAndMeanInput></WordAndMeanInput>
-            <WordAndMeanInput></WordAndMeanInput>
+          <div style={{display:"flex",flexDirection:"row"}}>
+           <WordAndMeanInput></WordAndMeanInput>
+           <WordAndMeanInput></WordAndMeanInput>
           </div>
           
         </WordAndMeanBlock>

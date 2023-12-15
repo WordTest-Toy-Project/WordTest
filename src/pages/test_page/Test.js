@@ -23,15 +23,15 @@ export default function Test() {
         </HorizonBlock>
 
         <WordAndMeanBlock>
-          <div>
+          <div style={{display:"flex",flexDirection:"row"}}>
            <WordAndMeanInput></WordAndMeanInput>
            <WordAndMeanInput></WordAndMeanInput>
           </div>
-          <div>
+          <div style={{display:"flex",flexDirection:"row"}}>
            <WordAndMeanInput></WordAndMeanInput>
            <WordAndMeanInput></WordAndMeanInput>
           </div>
-          <div>
+          <div style={{display:"flex",flexDirection:"row"}}>
            <WordAndMeanInput></WordAndMeanInput>
            <WordAndMeanInput></WordAndMeanInput>
           </div>
@@ -53,7 +53,7 @@ export default function Test() {
             height={90+"px"} 
             fontsize={29+"px"}/>
 
-          <Link to="/test_start">
+          <Link to="/test-start">
             <PuppleInputButton 
             type={"submit"}
             title={"시작"} 

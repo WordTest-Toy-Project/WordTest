@@ -7,11 +7,12 @@ import {
 } from './style';
 
 export default function WordTable({sampleJson}){
+  
   return (
     <WordContainer>
       <Text />
       <TableContainer>
-        <Table $sampleJson={sampleJson}/>
+        <Table sampleJson={sampleJson}/>
       </TableContainer>
     </WordContainer>
   );

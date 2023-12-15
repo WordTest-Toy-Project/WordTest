@@ -20,8 +20,6 @@ export const InputBlock = styled.div`
     
 `;
 export const WordAndMeanBlock = styled(HorizonBlock)`
-
-    display:flex;
     flex-direction:column;
 `;
 
@@ -33,8 +31,7 @@ export const InputText = styled.input`
     color: white;
     font-size: 30px;
     text-align:center;
-   
-    
+       
 `;
 export const ExampleInput = styled(InputText)`
     width:400px;

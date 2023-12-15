@@ -40,12 +40,14 @@ export default function Test() {
 
         <BottomRow>
           <PuppleInputButton 
+            type={"button"}
             title={"등록"} 
             width={200+"px"} 
             height={90+"px"} 
             fontsize={35+"px"}/> 
             
           <PuppleInputButton 
+            type={"button"}
             title={"입력 추가"} 
             width={200+"px"} 
             height={90+"px"} 
@@ -53,6 +55,7 @@ export default function Test() {
 
           <Link to="/test_start">
             <PuppleInputButton 
+            type={"submit"}
             title={"시작"} 
             width={200+"px"} 
             height={90+"px"} 
@@ -60,6 +63,7 @@ export default function Test() {
           </Link>
 
           <PuppleInputButton 
+            type={"button"}
             title={"초기화"} 
             width={200+"px"} 
             height={90+"px"} 

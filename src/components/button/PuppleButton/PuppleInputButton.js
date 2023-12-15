@@ -1,8 +1,9 @@
 import { PuppleButton } from "./style";
 
-export default function PuppleInputButton({title,width,height,fontsize}){
+export default function PuppleInputButton({type,title,width,height,fontsize}){
+    
     return (
-        <PuppleButton style={{width:width,height:height, fontSize:fontsize}}>{title}</PuppleButton>
+        <PuppleButton type={type}   style={{width:width,height:height, fontSize:fontsize}}>{title}</PuppleButton>
 
     );
 }

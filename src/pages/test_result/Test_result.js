@@ -30,8 +30,8 @@ export default function Test_result() {
         {sampleJson.map((word) => (
           <WrongWord key={word.id}>
             <div><p>{word.id + 1}.</p></div>
-            <WordLength><p style={{padding: "0 30px"}}>{word.word}</p><hr /></WordLength>
-            <WordLength><p style={{padding: "0 30px"}}>{word.mean}</p><hr /></WordLength>
+            <WordLength><p style={{padding: "0 30px"}}>{word.word}</p><hr style={{marginTop:"-20px"}}/></WordLength>
+            <WordLength><p style={{padding: "0 30px"}}>{word.mean}</p><hr style={{marginTop:"-20px"}}/></WordLength>
           </WrongWord>
         ))}
       </>

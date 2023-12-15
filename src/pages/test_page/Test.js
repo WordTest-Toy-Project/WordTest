@@ -52,32 +52,24 @@ export default function Test() {
           <PuppleInputButton 
             type={"button"}
             title={"등록"} 
-            width={200+"px"} 
-            height={90+"px"} 
-            fontsize={35+"px"}/> 
+            /> 
             
           <PuppleInputButton 
             type={"button"}
             title={"입력 추가"} 
-            width={200+"px"} 
-            height={90+"px"} 
-            fontsize={29+"px"}/>
+          />
 
           <Link to="/test-start">
             <PuppleInputButton 
             type={"submit"}
             title={"시작"} 
-            width={200+"px"} 
-            height={90+"px"} 
-            fontsize={35+"px"}/>
+           />
           </Link>
 
           <PuppleInputButton 
             type={"button"}
             title={"초기화"} 
-            width={200+"px"} 
-            height={90+"px"} 
-            fontsize={35+"px"}/>
+            />
         </BottomRow>
 
 

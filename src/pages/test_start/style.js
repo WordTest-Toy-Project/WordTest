@@ -13,9 +13,8 @@ export const InputText = styled.input`
 export const Text = styled.p`
     color : #B6B3B3;
     font-size:30px;
-    
     margin-left:15px;
-    margin-top:-130px;
+    margin-top:50px;
 `;
 export const InputBlock = styled.div`
     display:flex;

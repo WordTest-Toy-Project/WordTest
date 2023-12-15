@@ -1,7 +1,7 @@
 
 import Header from "../../components/header/Header";
 import  PuppleInputButton  from "../../components/button/PuppleButton/PuppleInputButton";
-import {BottomRow, Horizon, HorizonBlock}  from "./style";
+import {BottomRow,  ExampleInput,  HorizonBlock}  from "./style";
 import { NumInput ,Text, InputBlock} from "./style";
 import { WordAndMeanBlock,WordAndMeanInput } from "./style";
 import { Link } from "react-router-dom";
@@ -18,20 +18,39 @@ export default function Test() {
         </InputBlock>
           
         <HorizonBlock>
-          <Horizon/>
-          <Horizon/>
+          <ExampleInput type={"text"} disabled={true} placeholder="단어"></ExampleInput>
+          <ExampleInput type={"text"} disabled={true} placeholder="뜻"></ExampleInput>
         </HorizonBlock>
+
+        <WordAndMeanBlock>
+          <div>
+           <WordAndMeanInput></WordAndMeanInput>
+           <WordAndMeanInput></WordAndMeanInput>
+          </div>
+          <div>
+           <WordAndMeanInput></WordAndMeanInput>
+           <WordAndMeanInput></WordAndMeanInput>
+          </div>
+          <div>
+           <WordAndMeanInput></WordAndMeanInput>
+           <WordAndMeanInput></WordAndMeanInput>
+          </div>
+          
+        </WordAndMeanBlock>
 
         <BottomRow>
           <PuppleInputButton 
-          title={"등록"} 
-          width={200+"px"} 
-          height={90+"px"} 
-          fontsize={35+"px"}/> 
+            title={"등록"} 
+            width={200+"px"} 
+            height={90+"px"} 
+            fontsize={35+"px"}/> 
+            
           <PuppleInputButton 
-          title={"입력 추가"} 
-          width={200+"px"} height={90+"px"} 
-          fontsize={35+"px"}/>
+            title={"입력 추가"} 
+            width={200+"px"} 
+            height={90+"px"} 
+            fontsize={29+"px"}/>
+
           <Link to="/test_start">
             <PuppleInputButton 
             title={"시작"} 
@@ -41,19 +60,12 @@ export default function Test() {
           </Link>
 
           <PuppleInputButton 
-          title={"초기화"} 
-          width={200+"px"} 
-          height={90+"px"} 
-          fontsize={35+"px"}/>
-
+            title={"초기화"} 
+            width={200+"px"} 
+            height={90+"px"} 
+            fontsize={35+"px"}/>
         </BottomRow>
 
-        
-        <WordAndMeanBlock>
-           <WordAndMeanInput></WordAndMeanInput>
-           <WordAndMeanInput></WordAndMeanInput>
-        </WordAndMeanBlock>
-        
 
       </>
     );

@@ -4,23 +4,25 @@ export const Horizon = styled.hr`
     border: 3px solid #B6B3B3;
     width: 400px;
     margin-top: 400px;
+   
 `;
 
 export const HorizonBlock = styled.div`
     display :flex;
     align-items:center;
-    
+    justify-content:center;
 `;
 export const InputBlock = styled.div`
     display:flex;
     position: absolute;
     right:20px;
-    top:380px;
+    top:350px;
     
 `;
 export const WordAndMeanBlock = styled(HorizonBlock)`
-    margin-top: 0px;
-    gap:30px;
+
+    display:flex;
+    flex-direction:column;
 `;
 
 export const InputText = styled.input`
@@ -31,13 +33,27 @@ export const InputText = styled.input`
     color: white;
     font-size: 30px;
     text-align:center;
+   
     
+`;
+export const ExampleInput = styled(InputText)`
+    width:400px;
+    font-size:25px;
+    margin-top: 400px;
+    text-align:left;
+    margin-left:50px;
+    margin-right:50px;
 `;
 
 export const WordAndMeanInput =styled(InputText)`
     width:350px;
     height:40px;
     font-size:40px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-left:50px;
+    margin-right:50px;
+    
 `;
 export const NumInput = styled(InputText)`
     width:110px;
@@ -53,7 +69,7 @@ export const Text = styled.p`
 `;
 
 export const BottomRow = styled.div`
-    position: absolute;
+    position: fixed;
     display:flex;
     gap:50px;
     bottom: 10px;

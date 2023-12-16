@@ -10,19 +10,20 @@ import Title from "../../components/title/Title";
 import Fotter from "../../components/footer/Footer";
 
 export default function Signin() {
-  const childCount = 3; // childCount 값을 동적으로 변경하거나 로직에 따라 설정
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
 
   const LoginHandler = async () => {
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_LOCAL_URL}/signin`,
         {
-          username: username,
-          password: password,
+          username: user.username,
+          password: user.password,
         },
       );
       if (response.status === 200) {
@@ -47,18 +48,18 @@ export default function Signin() {
       <div style={{ height: "50px" }}></div>
       <Title title={"Word Test"} />
       <Desc>간단한 테스트 시작하기</Desc>
-      <InputContainer $childCount={childCount}>
+      <InputContainer>
         <LoginInput
           type={"text"}
           placeholder={"ID 입력"}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={user.username}
+          onChange={(e) => setUser({ ...user, username: e.target.value })}
         />
         <LoginInput
           type={"password"}
           placeholder={"Password 입력"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={user.password}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
         <SignBtn
           onClick={() => {

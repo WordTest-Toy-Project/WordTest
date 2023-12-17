@@ -30,10 +30,10 @@ export default function Table({ studyWord }) {
 
   return (
     <>
-      {Object.entries(studyWord).map(([wordId, test]) => (
-        <TableContainer key={wordId}>
+      {studyWord.map((test) => (
+        <TableContainer key={test.id}>
           <Row0>
-            <Image key={wordId} />
+            <Image />
           </Row0>
           <Row1>{test.word}</Row1>
           <Row2>{test.meaning}</Row2>
@@ -47,6 +47,6 @@ export default function Table({ studyWord }) {
 }
 
 // Image 컴포넌트
-function Image({ key, onClick }) {
-  return <Img key={key} onClick={onClick} />;
+function Image({ onClick }) {
+  return <Img onClick={onClick} />;
 }

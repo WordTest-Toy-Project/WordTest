@@ -12,15 +12,26 @@ import {
   WordAndMean,
   Img,
 } from "./style";
-import { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
+//import { useState } from "react";
 
-export default function Mypage() {
-  const [users, setUsers] = useState([{ id: 1, password: "asdfddd" }]);
+export default function Mypage({ username }) {
+  //const [username, setUsername] = useState("");
 
-  const handleDelete = (id) => {
-    const updatedUers = users.filter((user) => user.id !== id);
-    setUsers(updatedUers);
+  const handleDeleteAccount = async () => {
+    try {
+      // 서버로 DELETE 요청 보내기
+      const response = await axios.delete("http://localhost:3000/deleteUser", {
+        data: { username },
+      });
+
+      // 응답 처리
+      console.log(response.data.message); // 서버에서 전송한 메시지 출력 또는 다른 처리 수행
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      // 에러 처리: 사용자에게 알림 또는 다른 처리 수행
+    }
   };
 
   return (
@@ -30,7 +41,7 @@ export default function Mypage() {
 
         <Title title={"My Page"}></Title>
 
-        <IdBox>ID : {users.id}</IdBox>
+        <IdBox>ID : {username}</IdBox>
         <Text></Text>
         <Horizon></Horizon>
         <Link to="/favorite">
@@ -46,11 +57,9 @@ export default function Mypage() {
         </WordAndMean>
 
         <Bottom>
-          {users.map((user) => (
-            <BottomButton key={user.id} onClick={() => handleDelete(user.id)}>
-              탈퇴하기
-            </BottomButton>
-          ))}
+          <BottomButton key={username} onClick={() => handleDeleteAccount()}>
+            탈퇴하기
+          </BottomButton>
 
           <Link to="https://github.com/morningB">
             <BottomButton>문의하기</BottomButton>

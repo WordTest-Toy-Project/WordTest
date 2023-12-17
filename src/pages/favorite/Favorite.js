@@ -9,17 +9,17 @@ export default function Favorite() {
     {
       id: 0,
       word: "Apple",
-      mean: "사과",
+      meaning: "사과",
     },
     {
       id: 1,
       word: "Banana",
-      mean: "바나나",
+      meaning: "바나나",
     },
     {
       id: 2,
       word: "Chicken",
-      mean: "치킨",
+      meaning: "치킨",
     },
   ];
   return (
@@ -28,7 +28,7 @@ export default function Favorite() {
       <Title>
         즐겨찾기 <span style={{ color: "yellow" }}>단어</span>
       </Title>
-      <WordTable sampleJson={sampleJson} />
+      <WordTable studyWord={sampleJson} />
     </>
   );
 }

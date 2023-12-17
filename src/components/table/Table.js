@@ -1,5 +1,5 @@
 import { TableContainer, Row0, Row1, Row2, Row3, Img } from "./style";
-//import axiosInstance from "./../../utils/axiosInterceptor/axiosInterceptor";
+
 import { useState } from "react";
 
 export default function Table({ studyWord, onDeleteWord }) {

@@ -47,6 +47,6 @@ export default function Table({ studyWord }) {
 }
 
 // Image 컴포넌트
-function Image({ onClick }) {
-  return <Img onClick={onClick} />;
+function Image() {
+  return <Img />;
 }

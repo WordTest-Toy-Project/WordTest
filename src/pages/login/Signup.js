@@ -7,7 +7,7 @@ import axios from "axios";
 import { Desc, InputContainer, SignBtn } from "./style";
 
 //components
-import LoginInput from "../../components/loginInput/LoginInput";
+import LoginInput from "../../components/input/LoginInput";
 import Title from "../../components/title/Title";
 import Fotter from "../../components/footer/Footer";
 

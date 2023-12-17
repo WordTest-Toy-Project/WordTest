@@ -39,15 +39,6 @@ export const ExampleInput = styled(InputText)`
   margin-right: 50px;
 `;
 
-export const WordAndMeanInput = styled(InputText)`
-  width: 350px;
-  height: 40px;
-  font-size: 40px;
-  margin: 0 auto;
-  margin-top: 100px;
-  margin-left: 50px;
-  margin-right: 50px;
-`;
 export const NumInput = styled(InputText)`
   width: 110px;
   height: 30px;

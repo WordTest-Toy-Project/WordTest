@@ -12,13 +12,14 @@ import {
 //library
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 //components
 import Header from "../../components/header/Header";
-import axios from "axios";
+//import axios from "axios";
 
 export default function Main() {
-  const [todayWord, setTodayWord] = useState({
+  {
+    /*const [todayWord, setTodayWord] = useState({
     word: "",
     mean: "",
   });
@@ -35,7 +36,8 @@ export default function Main() {
     };
 
     fetchData();
-  }, []);
+  }, []);*/
+  }
 
   return (
     <div>
@@ -48,9 +50,7 @@ export default function Main() {
           <TodayWord>
             오늘의 <Yellow>단어</Yellow>
           </TodayWord>
-          <RandomWord>
-            {todayWord.word} {todayWord.mean}
-          </RandomWord>
+          <RandomWord>{/*{todayWord.word} {todayWord.mean}*/}</RandomWord>
         </WordContainer>
 
         <Horizon></Horizon>

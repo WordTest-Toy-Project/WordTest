@@ -20,10 +20,24 @@ export default function Study() {
     fetchData();
   }, []);
 
+  const onDeleteWord = (wordId) => {
+    // 서버로 DELETE 요청을 보내는 코드 작성
+    fetch(`http://localhost:9000/deleteWord/${wordId}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data); // 서버 응답 로그 출력
+        // 삭제에 성공했다면 화면에서 해당 단어를 업데이트
+        // 예: onDeleteSuccess 함수를 호출하여 studyWord 상태를 업데이트
+      })
+      .catch((error) => console.error("Error:", error));
+  };
+
   return (
     <>
       <Header $back={true} $title={true} $addWord={true} $gear={false} />
-      <WordTable studyWord={studyWord} />
+      <WordTable studyWord={studyWord} onDeleteWord={onDeleteWord} />
     </>
   );
 }

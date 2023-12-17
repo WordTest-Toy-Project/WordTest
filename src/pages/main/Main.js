@@ -14,31 +14,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 //import { useState, useEffect } from "react";
 //components
+
 import Header from "../../components/header/Header";
 //import axios from "axios";
 
 export default function Main() {
-  {
-    /*const [todayWord, setTodayWord] = useState({
-    word: "",
-    mean: "",
-  });
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.post(
-          `${process.env.REACT_APP_LOCAL_URL}/openai`,
-        );
-        setTodayWord(response.data.words);
-      } catch (error) {
-        console.error("Error fetching TOEIC words:", error);
-      }
-    };
-
-    fetchData();
-  }, []);*/
-  }
-
   return (
     <div>
       <Container>

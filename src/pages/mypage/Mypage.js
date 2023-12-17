@@ -14,10 +14,13 @@ import {
 } from "./style";
 import axios from "axios";
 import { Link } from "react-router-dom";
-//import { useState } from "react";
 
 export default function Mypage({ username }) {
-  //const [username, setUsername] = useState("");
+  const storedUser = localStorage.getItem("user");
+
+  // 가져온 정보가 있다면 JSON 형태로 파싱하여 사용자 정보 추출
+  const userObject = storedUser ? JSON.parse(storedUser) : null;
+  const username0 = userObject ? userObject.username : "";
 
   const handleDeleteAccount = async () => {
     try {
@@ -41,7 +44,7 @@ export default function Mypage({ username }) {
 
         <Title title={"My Page"}></Title>
 
-        <IdBox>ID : {username}</IdBox>
+        <IdBox>ID : {username0}</IdBox>
         <Text></Text>
         <Horizon></Horizon>
         <Link to="/favorite">

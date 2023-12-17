@@ -28,6 +28,7 @@ export default function Signin() {
       );
       if (response.status === 200) {
         console.log("로그인 성공!");
+        localStorage.setItem("user", JSON.stringify(user));
         alert("로그인 성공!");
         navigate("/main");
       } else {

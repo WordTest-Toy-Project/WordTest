@@ -231,4 +231,19 @@ router.get("/test-result", async(req,res)=>{
   });
 });
 
+// 사용자 삭제 엔드포인트
+router.delete('/deleteUser', (req, res) => {
+  const { username } = req.body;
+
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+
+      res.json({ message: 'User deleted successfully' });
+    }
+  });
+});
+
 module.exports = router;

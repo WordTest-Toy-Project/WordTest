@@ -13,9 +13,10 @@ import {
   Img,
 } from "./style";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Mypage({ username }) {
+  const navigate = useNavigate();
   const storedUser = localStorage.getItem("user");
 
   // 가져온 정보가 있다면 JSON 형태로 파싱하여 사용자 정보 추출
@@ -25,13 +26,14 @@ export default function Mypage({ username }) {
   const handleDeleteAccount = async () => {
     try {
       // 서버로 DELETE 요청 보내기
-      const response = await axios.delete("http://localhost:3000/deleteUser", {
+      const response = await axios.delete(`${process.env.REACT_APP_LOCAL_URL}/deleteUser`, {
         data: { username },
       });
 
       // 응답 처리
       console.log(response.data.message); // 서버에서 전송한 메시지 출력 또는 다른 처리 수행
       localStorage.removeItem("user");
+      navigate("/");
     } catch (error) {
       console.error("Error deleting user:", error);
       // 에러 처리: 사용자에게 알림 또는 다른 처리 수행

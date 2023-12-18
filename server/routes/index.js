@@ -171,5 +171,19 @@ router.post('/scrapWord/:id', (req, res) => {
   });
 });
 
+// main 페이지 단어 가져오기
+router.get("/main", (req, res) => {
+  const query = "SELECT word,meaning FROM words ORDER BY RAND() LIMIT 1";
+
+  db.query(query, (error, results) => {
+    if (error) {
+      console.error("Error executing query:", error);
+      res.status(500).json({ error: "Internal server error" });
+    } else {
+      const randomWord = results[0];
+      res.json(randomWord);
+    }
+  });
+});
 
 module.exports = router;

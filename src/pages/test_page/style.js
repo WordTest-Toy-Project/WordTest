@@ -18,6 +18,12 @@ export const InputBlock = styled.div`
   top: 350px;
 `;
 export const WordAndMeanBlock = styled(HorizonBlock)`
+  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style:none;
+  &::-webkit-scrollbar{
+    display:none;
+  }
   flex-direction: column;
 `;
 

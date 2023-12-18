@@ -87,7 +87,7 @@ export default function Test() {
           placeholder="뜻"
         ></ExampleInput>
       </HorizonBlock>
-
+      
       <WordAndMeanBlock>
         {addWords.map((wordObj, index) => (
           <div key={index} style={{ display: "flex", flexDirection: "row" }}>

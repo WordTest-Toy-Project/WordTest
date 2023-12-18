@@ -10,15 +10,33 @@ import {
   TodayTest,
 } from "./style";
 //library
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
-//import { useState, useEffect } from "react";
+import axios from "axios";
+
 //components
 
 import Header from "../../components/header/Header";
-//import axios from "axios";
+
 
 export default function Main() {
+  const [randomWord, setRandomWord] = useState({word:"", meaning:""});
+  const fetchRandomWord = async () =>{
+    try{
+      const response = await axios.get(
+        `${process.env.REACT_APP_LOCAL_URL}/main`
+        );
+      setRandomWord(response.data);
+
+    }
+    catch (error) {
+      console.log("Error fetching random word:", error);
+    }
+  }
+  useEffect(() => {
+    fetchRandomWord();
+  },[]);
+
   return (
     <div>
       <Container>
@@ -30,7 +48,7 @@ export default function Main() {
           <TodayWord>
             오늘의 <Yellow>단어</Yellow>
           </TodayWord>
-          <RandomWord>{/*{todayWord.word} {todayWord.mean}*/}</RandomWord>
+          <RandomWord onLoad={fetchRandomWord}>{randomWord.word} : {randomWord.meaning} </RandomWord>
         </WordContainer>
 
         <Horizon></Horizon>

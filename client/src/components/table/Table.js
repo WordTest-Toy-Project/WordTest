@@ -2,7 +2,7 @@ import { TableContainer, Row0, Row1, Row2, Row3, Img } from "./style";
 
 import { useState } from "react";
 
-export default function Table({ studyWord, onDeleteWord, onScrapWord }) {
+export default function Table({ studyWord, onDeleteWord }) {
   const [clickedWordId, setClickedWordId] = useState(null);
   console.log(clickedWordId);
   const handleImageClick = (wordId) => {
@@ -13,19 +13,13 @@ export default function Table({ studyWord, onDeleteWord, onScrapWord }) {
     onDeleteWord(wordId);
     window.location.reload();
   };
-  const handleScrapClick = (wordId) => {
-    // 클릭한 이미지의 단어 아이디를 state에 저장
-    setClickedWordId(wordId);
 
-    onScrapWord(wordId);
-    window.location.reload();
-  };
   return (
     <>
       {studyWord.map((test) => (
-        <TableContainer key={test.id}>
+        <TableContainer key={test.word_id}>
           <Row0>
-            <Image test={test} onClick={() => handleScrapClick(test.id)} />
+            <Image test={test} />
           </Row0>
           <Row1>{test.word}</Row1>
           <Row2>{test.meaning}</Row2>
@@ -34,7 +28,7 @@ export default function Table({ studyWord, onDeleteWord, onScrapWord }) {
               src="./image/xbtn.png"
               alt="삭제"
               width="35px"
-              onClick={() => handleImageClick(test.id)}
+              onClick={() => handleImageClick(test.word_id)}
             />
           </Row3>
         </TableContainer>
@@ -44,6 +38,6 @@ export default function Table({ studyWord, onDeleteWord, onScrapWord }) {
 }
 
 // Image 컴포넌트
-function Image({ onClick }) {
-  return <Img onClick={onClick} />;
+function Image() {
+  return <Img />;
 }

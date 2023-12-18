@@ -27,6 +27,7 @@ export default function Test_start() {
       try {
         const response = await axios.get(`${process.env.REACT_APP_LOCAL_URL}/study`);
         const shuffledWords = response.data.sort(() => Math.random() - 0.5);
+
         setRandomWords(shuffledWords.slice(0,10));
       } catch (error) {
         console.error("Error fetching random words:", error);
@@ -45,22 +46,21 @@ export default function Test_start() {
           : count,
       correctCount
     );
-
+  
     setCorrectCount(newCorrectCount);
-
+  
     try {
       const promises = randomWords.map(async (wordObj, index) => {
         // 사용자가 입력한 답과 정답을 비교
         const isWrong = userAnswers[index]?.toString() !== wordObj.mean;
-  
+        
         if (isWrong) {
           // 답이 틀린 경우, 데이터베이스 업데이트
-          await axios.put(`${process.env.REACT_APP_LOCAL_URL}/updateword/${wordObj.id}`);
+          await axios.put(`${process.env.REACT_APP_LOCAL_URL}/updateword/${wordObj.id}`, { userAnswer: userAnswers[index] });
         }
   
         return isWrong;
       });
-  
       const wrongAnswers = Promise.all(promises);
   
       // wrongAnswers 배열에는 각 단어에 대한 정답 여부가 true 또는 false로 저장됩니다.

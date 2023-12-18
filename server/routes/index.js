@@ -246,4 +246,40 @@ router.delete('/deleteUser', (req, res) => {
   });
 });
 
+router.put('/updateword/id', (req, res) => {
+  const { id } = req.params;
+  
+  // 사용자의 답과 비교할 정답은 클라이언트에서 전송된 데이터로 대체해야 합니다.
+  const userAnswer = req.body.userAnswer;
+
+  // 데이터베이스에서 해당 id의 단어 정보를 가져옵니다.
+  const getWordQuery = "SELECT * FROM words WHERE word_id = ?";
+
+  db.query(getWordQuery, [id], (error, results) => {
+    if (error) {
+      console.error("Error fetching word:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    } else if (results.length === 0 || !results[0].mean) {
+      // 데이터가 없거나 'mean' 프로퍼티가 없는 경우
+      res.status(404).json({ error: "Word not found" });
+    } else {
+      const wordObj = results[0];
+  
+
+      // 사용자의 답과 정답을 비교하여 is_wrong 업데이트
+      const isWrong = userAnswer !== wordObj.mean;
+
+      const updateWordQuery = "UPDATE words SET is_wrong = ? WHERE id = ?";
+      db.query(updateWordQuery, [isWrong, id], (updateError, updateResults) => {
+        if (updateError) {
+          console.error("Error updating word:", updateError);
+          res.status(500).json({ error: "Internal Server Error" });
+        } else {
+          res.status(200).json({ message: "Word updated successfully" });
+        }
+      });
+    }
+  });
+});
+
 module.exports = router;

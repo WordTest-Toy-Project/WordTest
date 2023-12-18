@@ -152,23 +152,44 @@ router.delete('/deleteWord/:wordId', (req, res) => {
   });
 });
 
-router.post('/scrapWord/:wordId', (req, res) => {
-  const { user_id, word_id } = req.body;
+// 스크랩 요청 처리
+router.post('/scrapWord/:id', (req, res) => {
+  const wordId = req.params.id;
+  const { user_id } = req.body;
 
-  // Insert a new entry into word_bookmarks
-  const insertBookmarkQuery = 'INSERT INTO word_bookmarks (user_id, word_id) VALUES (?, ?)';
+  // 단어를 스크랩으로 표시하기 위한 쿼리
+  const insertScrapQuery = 'INSERT INTO word_bookmarks (word_id, user_id, is_scrap) VALUES (?, ?, 1)';
 
-  db.query(insertBookmarkQuery, [user_id, word_id], (err, result) => {
+  // 스크랩 레코드를 추가하는 쿼리 실행
+  db.query(insertScrapQuery, [wordId, user_id], (err, result) => {
     if (err) {
-      console.error('Error inserting bookmark:', err);
-      res.status(500).json({ success: false, message: 'Internal Server Error' });
+      console.error('스크랩 추가 중 에러 발생:', err);
+      res.status(500).json({ success: false, message: '내부 서버 오류' });
     } else {
-      console.log('Word successfully bookmarked');
-      res.status(200).json({ success: true, message: 'Word bookmarked successfully' });
+      console.log('단어가 성공적으로 스크랩되었습니다.');
+      res.status(200).json({ success: true, message: '단어가 성공적으로 스크랩되었습니다.' });
     }
   });
 });
 
+// 스크랩 해제 요청 처리
+router.delete('/scrapWord/:id', (req, res) => {
+  const wordId = req.params.id;
+
+  // 단어 스크랩을 해제하기 위한 쿼리
+  const deleteScrapQuery = 'DELETE FROM word_bookmarks WHERE word_id = ?';
+
+  // 스크랩 레코드를 삭제하는 쿼리 실행
+  db.query(deleteScrapQuery, [wordId, user_id], (err, result) => {
+    if (err) {
+      console.error('스크랩 삭제 중 에러 발생:', err);
+      res.status(500).json({ success: false, message: '내부 서버 오류' });
+    } else {
+      console.log('단어 스크랩이 성공적으로 해제되었습니다.');
+      res.status(200).json({ success: true, message: '단어 스크랩이 성공적으로 해제되었습니다.' });
+    }
+  });
+});
 
 // main 페이지 단어 가져오기
 router.get("/main", (req, res) => {

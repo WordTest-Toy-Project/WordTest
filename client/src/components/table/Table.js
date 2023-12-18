@@ -46,6 +46,6 @@ export default function Table({ studyWord, onDeleteWord, onScrapWord }) {
 }
 
 // Image 컴포넌트
-function Image() {
-  return <Img />;
+function Image({onClick}) {
+  return <Img onClick={onClick} />;
 }

@@ -31,6 +31,7 @@ export default function Mypage({ username }) {
 
       // 응답 처리
       console.log(response.data.message); // 서버에서 전송한 메시지 출력 또는 다른 처리 수행
+      localStorage.removeItem("user");
     } catch (error) {
       console.error("Error deleting user:", error);
       // 에러 처리: 사용자에게 알림 또는 다른 처리 수행

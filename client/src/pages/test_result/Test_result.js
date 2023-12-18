@@ -41,10 +41,10 @@ export default function Test_result() {
       <Desc>
         <span style={{ color: "yellow" }}>오답 단어</span>
       </Desc>
-      {wrongWords.map((word) => (
-        <WrongWord key={word.id}>
+      {wrongWords.map((word, index) => (
+        <WrongWord key={index}>
           <div>
-            <p>.</p>
+            <p>{index+1}</p>
           </div>
           <WordLength>
             <p style={{ padding: "0 30px" }}>{word.word}</p>

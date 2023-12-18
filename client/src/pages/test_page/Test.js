@@ -76,7 +76,7 @@ export default function Test() {
         <NumInput type={"text"} maxLength={3}></NumInput>
         <Text>문제</Text>
       </InputBlock>
-
+      
       <HorizonBlock>
         <ExampleInput
           type={"text"}
@@ -90,21 +90,30 @@ export default function Test() {
         ></ExampleInput>
       </HorizonBlock>
       
-      <WordAndMeanBlock>
+      <WordAndMeanBlock  style={{ 
+        margin: "10px", padding: "10px", border: "1px solid #ccc" }}>
         {addWords.map((wordObj, index) => (
-          <div key={index} style={{ display: "flex", flexDirection: "row" }}>
-            <WordAndMeanInput
-              value={wordObj.word}
-              onChange={(e) => handleInputChange(index, "word", e.target.value)}
-            />
-            <WordAndMeanInput
-              value={wordObj.mean}
-              onChange={(e) => handleInputChange(index, "mean", e.target.value)}
-            />
+          <div key={index} style={{
+            display: "flex",
+            flexDirection: "row",
+           
+          }}>
+            
+              <WordAndMeanInput
+                value={wordObj.word}
+                onChange={(e) => handleInputChange(index, "word", e.target.value)}
+                placeholder="단어"
+              />
+              <WordAndMeanInput
+                value={wordObj.mean}
+                onChange={(e) => handleInputChange(index, "mean", e.target.value)}
+                placeholder="뜻"
+              />
+            
           </div>
         ))}
       </WordAndMeanBlock>
-
+     
       <BottomRow>
         <Link to="/study">
           <PuppleInputButton

@@ -47,7 +47,7 @@ export default function Mypage({ username }) {
         <IdBox>ID : {username0}</IdBox>
         <Text></Text>
         <Horizon></Horizon>
-        <Link to="/favorite">
+        <Link to="/favorite" style={{ textDecoration: "none" }}>
           <Extra>즐겨찾기</Extra>
         </Link>
 

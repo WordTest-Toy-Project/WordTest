@@ -1,48 +1,44 @@
-import Header from "../../components/header/Header";
-import  PuppleInputButton  from "../../components/button/PuppleButton/PuppleInputButton";
-import { 
-  BottomRow, 
-  InputBlock,
+import {
+  BottomRow,
   InputText,
   Text,
   WordOrMean,
-  WordOrMeanBlock 
+  WordOrMeanBlock,
 } from "./style";
+//components
+import Header from "../../components/header/Header";
+import PuppleInputButton from "../../components/button/PuppleButton/PuppleInputButton";
 import Title from "../../components/title/Title";
+
 export default function Test_start() {
-    return (
-      <>
-       <Header/>
-       <Title title={"Word Test"}></Title>
-       <InputBlock>
-        <Text>{"13"} 문제</Text>
-       </InputBlock>
+  return (
+    <>
+      <Header $back={true} $title={false} $addWord={false} $gear={true} />
+      <Title title={"Word Test"} />
+      <Text>{"13"} 문제</Text>
 
-        <WordOrMeanBlock>
-         <WordOrMean>{"num. "} {"word"}</WordOrMean>
-         <InputText></InputText>
-         <WordOrMean>{"num. "} {"word"}</WordOrMean>
-         <InputText></InputText>
-         <WordOrMean>{"num. "} {"word"}</WordOrMean>
-         <InputText></InputText>
-         <WordOrMean>{"num. "} {"word"}</WordOrMean>
-         <InputText></InputText>
+      <WordOrMeanBlock>
+        <WordOrMean>
+          {"num. "} {"word"}
+        </WordOrMean>
+        <InputText></InputText>
+        <WordOrMean>
+          {"num. "} {"word"}
+        </WordOrMean>
+        <InputText></InputText>
+        <WordOrMean>
+          {"num. "} {"word"}
+        </WordOrMean>
+        <InputText></InputText>
+        <WordOrMean>
+          {"num. "} {"word"}
+        </WordOrMean>
+        <InputText></InputText>
+      </WordOrMeanBlock>
 
-        </WordOrMeanBlock>
-       
-
-
-       <BottomRow>
-        <PuppleInputButton 
-        type="submit" 
-        title={"제출"} 
-
-        fontsize={30+"px"}
-        ></PuppleInputButton>
-        </BottomRow>
-
-       
-       </>
-    );
-
-  }
+      <BottomRow>
+        <PuppleInputButton type="submit" title={"제출"}></PuppleInputButton>
+      </BottomRow>
+    </>
+  );
+}

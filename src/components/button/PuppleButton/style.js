@@ -6,7 +6,7 @@ export const PuppleButton  = styled.button`
     background-color: #892CDC;
     color:white;
     padding:0 20px;
-    width:200px;
-    height:90px;
-    font-size:35px;
+    min-width: 150px;
+    height: 90px;
+    font-size: 30px;
 `;

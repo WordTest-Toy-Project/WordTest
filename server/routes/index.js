@@ -152,24 +152,23 @@ router.delete('/deleteWord/:wordId', (req, res) => {
   });
 });
 
-// 스크랩 요청 처리
-router.post('/scrapWord/:id', (req, res) => {
-  const wordId = req.params.id;
+router.post('/scrapWord/:wordId', (req, res) => {
+  const { user_id, word_id } = req.body;
 
-  // 단어를 스크랩으로 표시하기 위한 쿼리
-  const updateScrapQuery = 'UPDATE words SET is_scrap = 1 WHERE id = ?';
+  // Insert a new entry into word_bookmarks
+  const insertBookmarkQuery = 'INSERT INTO word_bookmarks (user_id, word_id) VALUES (?, ?)';
 
-  // 스크랩 상태를 업데이트하는 쿼리 실행
-  db.query(updateScrapQuery, [wordId], (err, result) => {
+  db.query(insertBookmarkQuery, [user_id, word_id], (err, result) => {
     if (err) {
-      console.error('Error updating scrap status:', err);
+      console.error('Error inserting bookmark:', err);
       res.status(500).json({ success: false, message: 'Internal Server Error' });
     } else {
-      console.log('Word successfully scrapped');
-      res.status(200).json({ success: true, message: 'Word scrapped successfully' });
+      console.log('Word successfully bookmarked');
+      res.status(200).json({ success: true, message: 'Word bookmarked successfully' });
     }
   });
 });
+
 
 // main 페이지 단어 가져오기
 router.get("/main", (req, res) => {

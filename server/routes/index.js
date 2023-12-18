@@ -186,4 +186,48 @@ router.get("/main", (req, res) => {
   });
 });
 
+// study에 추가하는 기능
+router.post("/test", async (req, res) => {
+  try {
+    const { words } = req.body;
+
+    // 데이터베이스에 받은 단어 저장
+    // 여기서는 words 테이블에 저장하도록 가정하고 있습니다.
+    const result = await db.query("INSERT INTO words (word, meaning) VALUES ?", [words.map(wordObj => [wordObj.word, wordObj.mean])]);
+
+    res.json({ message: "Words added successfully", result });
+  } catch (error) {
+    console.error("Error adding words:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// 단어 시험 시작 화면
+router.get("/test-start", async (req, res) => {
+  try {
+    // words 테이블에서 랜덤한 5개의 단어를 가져옴 (숫자는 필요에 따라 조절)
+    const result = await db.query("SELECT * FROM words ORDER BY RAND() LIMIT 10");
+
+    res.json(result);
+  } catch (error) {
+    console.error("Error fetching random words:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+router.get("/test-result", async(req,res)=>{
+  const getWrongWordsQuery = 'SELECT * FROM words WHERE is_wrong = true';
+
+  db.query(getWrongWordsQuery, (err, results) => {
+    if (err) {
+      console.error('Error fetching wrong words:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      const wrongWords = results.map((word) => ({ id: word.id, word: word.word, mean: word.mean }));
+      res.json({ count: wrongWords.length, words: wrongWords });
+    }
+  });
+});
+
 module.exports = router;

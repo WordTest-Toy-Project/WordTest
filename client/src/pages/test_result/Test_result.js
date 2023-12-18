@@ -51,7 +51,7 @@ export default function Test_result() {
             <hr style={{ marginTop: "-20px" }} />
           </WordLength>
           <WordLength>
-            <p style={{ padding: "0 30px" }}>{"ads"}</p>
+            <p style={{ padding: "0 30px" }}>{"sqs"}</p>
             <hr style={{ marginTop: "-20px" }} />
           </WordLength>
         </WrongWord>

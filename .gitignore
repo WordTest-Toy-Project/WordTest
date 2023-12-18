@@ -7,3 +7,5 @@ node_modules/
 .env
 
 db/db.js
+
+server/db/db.js

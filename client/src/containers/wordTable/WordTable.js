@@ -4,6 +4,7 @@ import Text from "../../components/table/Text";
 import { WordContainer, TableContainer } from "./style";
 
 export default function WordTable({ studyWord, onDeleteWord, updateScrapStatus }) {
+
   return (
     <WordContainer>
       <Text />

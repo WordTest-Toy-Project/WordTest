@@ -19,7 +19,6 @@ export default function Table({ studyWord, onDeleteWord, updateScrapStatus }) {
 
     // 서버로 DELETE 요청 보내기
     updateScrapStatus(wordId);
-    window.location.reload();
   };
 
   return (
@@ -27,7 +26,7 @@ export default function Table({ studyWord, onDeleteWord, updateScrapStatus }) {
       {studyWord.map((test) => (
         <TableContainer key={test.word_id}>
           <Row0>
-            <Image test={test} onClick={()=>handleClick(test.word_id)}/>
+            <Image test={test} onClick={()=>handleClick(test.word_id)} />
           </Row0>
           <Row1>{test.word}</Row1>
           <Row2>{test.meaning}</Row2>
@@ -47,5 +46,14 @@ export default function Table({ studyWord, onDeleteWord, updateScrapStatus }) {
 
 // Image 컴포넌트
 function Image({onClick}) {
-  return <Img onClick={onClick} />;
+    const [isScrap, setIsScrap] = useState(false);
+    function scrapClick(){
+      if(isScrap === false){
+        setIsScrap(!isScrap);
+      }
+    }
+  return <Img onClick={()=>{
+    onClick(),
+    scrapClick();
+  }} $isScrap={isScrap} />;
 }

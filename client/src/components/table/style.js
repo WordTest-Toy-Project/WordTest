@@ -62,5 +62,5 @@ export const Img = styled.img`
   height: 40px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url(${props => (props.$scrapState ? './image/starf.svg' : './image/stare.svg')});
+  background-image: url(${props => (props.$isScrap ? './image/starf.svg' : './image/stare.svg')});
 `;

@@ -9,6 +9,7 @@ export default function Study() {
   const user = storedUser ? JSON.parse(storedUser) : null;
   console.log(user);
   const [studyWord, setStudyWord] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,7 +23,7 @@ export default function Study() {
     };
     fetchData();
   }, []);
-
+  
   const onDeleteWord = (wordId) => {
     // 서버로 DELETE 요청을 보내는 코드 작성
     fetch(`http://localhost:9000/deleteWord/${wordId}`, {
@@ -49,7 +50,6 @@ const updateScrapStatus = async (wordId, userId, isScrap) => {
     });
 
     const data = await response.json();
-
     if (response.ok) {
       console.log(data.message);
     } else {

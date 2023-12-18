@@ -152,41 +152,22 @@ router.delete('/deleteWord/:wordId', (req, res) => {
   });
 });
 
-// 스크랩 요청 처리
+// 스크랩 상태 업데이트 또는 추가/삭제
 router.post('/scrapWord/:id', (req, res) => {
-  const wordId = req.params.id;
-  const { user_id } = req.body;
+  const wordId = parseInt(req.params.id);
+  const { user_id, is_scrap } = req.body;
 
-  // 단어를 스크랩으로 표시하기 위한 쿼리
-  const insertScrapQuery = 'INSERT INTO word_bookmarks (word_id, user_id, is_scrap) VALUES (?, ?, 1)';
+  // 스크랩 상태를 업데이트 또는 추가/삭제하는 쿼리
+  const updateScrapQuery = 'INSERT INTO word_bookmarks (word_id, user_id, is_scrap) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE is_scrap = VALUES(is_scrap)';
 
-  // 스크랩 레코드를 추가하는 쿼리 실행
-  db.query(insertScrapQuery, [wordId, user_id], (err, result) => {
+  // 쿼리 실행
+  db.query(updateScrapQuery, [wordId, user_id, is_scrap], (err, result) => {
     if (err) {
-      console.error('스크랩 추가 중 에러 발생:', err);
-      res.status(500).json({ success: false, message: '내부 서버 오류' });
+      console.error('Error updating or adding scrap:', err);
+      res.status(500).json({ success: false, message: 'Internal Server Error' });
     } else {
-      console.log('단어가 성공적으로 스크랩되었습니다.');
-      res.status(200).json({ success: true, message: '단어가 성공적으로 스크랩되었습니다.' });
-    }
-  });
-});
-
-// 스크랩 해제 요청 처리
-router.delete('/scrapWord/:id', (req, res) => {
-  const wordId = req.params.id;
-
-  // 단어 스크랩을 해제하기 위한 쿼리
-  const deleteScrapQuery = 'DELETE FROM word_bookmarks WHERE word_id = ?';
-
-  // 스크랩 레코드를 삭제하는 쿼리 실행
-  db.query(deleteScrapQuery, [wordId, user_id], (err, result) => {
-    if (err) {
-      console.error('스크랩 삭제 중 에러 발생:', err);
-      res.status(500).json({ success: false, message: '내부 서버 오류' });
-    } else {
-      console.log('단어 스크랩이 성공적으로 해제되었습니다.');
-      res.status(200).json({ success: true, message: '단어 스크랩이 성공적으로 해제되었습니다.' });
+      console.log('Scrap status updated');
+      res.status(200).json({ success: true, message: 'Scrap status updated successfully' });
     }
   });
 });

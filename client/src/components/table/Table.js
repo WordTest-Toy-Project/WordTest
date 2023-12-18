@@ -2,7 +2,7 @@ import { TableContainer, Row0, Row1, Row2, Row3, Img } from "./style";
 
 import { useState } from "react";
 
-export default function Table({ studyWord, onDeleteWord, onScrapWord }) {
+export default function Table({ studyWord, onDeleteWord, updateScrapStatus }) {
   const [clickedWordId, setClickedWordId] = useState(null);
   console.log(clickedWordId);
   const handleImageClick = (wordId) => {
@@ -18,7 +18,7 @@ export default function Table({ studyWord, onDeleteWord, onScrapWord }) {
     setClickedWordId(wordId);
 
     // 서버로 DELETE 요청 보내기
-    onScrapWord(wordId);
+    updateScrapStatus(wordId);
     window.location.reload();
   };
 

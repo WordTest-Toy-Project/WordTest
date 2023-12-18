@@ -17,7 +17,7 @@ export default function Table({ studyWord, onDeleteWord }) {
   return (
     <>
       {studyWord.map((test) => (
-        <TableContainer key={test.id}>
+        <TableContainer key={test.word_id}>
           <Row0>
             <Image test={test} />
           </Row0>
@@ -28,7 +28,7 @@ export default function Table({ studyWord, onDeleteWord }) {
               src="./image/xbtn.png"
               alt="삭제"
               width="35px"
-              onClick={() => handleImageClick(test.id)}
+              onClick={() => handleImageClick(test.word_id)}
             />
           </Row3>
         </TableContainer>

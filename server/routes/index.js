@@ -91,7 +91,7 @@ router.post('/addword', (req, res) => {
   const { words } = req.body;
 
   // 단어 추가 쿼리
-  const addWordQuery = `INSERT INTO vocabulary (word, meaning) VALUES (?, ?)`;
+  const addWordQuery = `INSERT INTO words (word, meaning) VALUES (?, ?)`;
 
   // 모든 단어를 비동기적으로 처리
   Promise.all(
@@ -121,7 +121,7 @@ router.post('/addword', (req, res) => {
 // 클라이언트에 vocabulary 데이터 보내기
 router.get('/study', (req, res) => {
   // 단어 조회 쿼리
-  const selectWordsQuery = 'SELECT * FROM vocabulary';
+  const selectWordsQuery = 'SELECT * FROM words';
 
   // 데이터베이스에서 단어 조회
   db.query(selectWordsQuery, (err, results) => {
@@ -139,7 +139,7 @@ router.delete('/deleteWord/:wordId', (req, res) => {
   const { wordId } = req.params;
 
   // 단어 삭제 쿼리
-  const deleteWordQuery = 'DELETE FROM vocabulary WHERE id = ?';
+  const deleteWordQuery = 'DELETE FROM words WHERE word_id = ?';
 
   // 데이터베이스에서 해당 단어 삭제
   db.query(deleteWordQuery, [wordId], (err, result) => {
@@ -148,6 +148,25 @@ router.delete('/deleteWord/:wordId', (req, res) => {
       res.status(500).json({ error: 'Error deleting word' });
     } else {
       res.json({ message: 'Word deleted successfully' });
+    }
+  });
+});
+
+// 스크랩 요청 처리
+router.post('/scrapWord/:id', (req, res) => {
+  const wordId = req.params.id;
+
+  // 단어를 스크랩으로 표시하기 위한 쿼리
+  const updateScrapQuery = 'UPDATE words SET is_scrap = 1 WHERE id = ?';
+
+  // 스크랩 상태를 업데이트하는 쿼리 실행
+  db.query(updateScrapQuery, [wordId], (err, result) => {
+    if (err) {
+      console.error('Error updating scrap status:', err);
+      res.status(500).json({ success: false, message: 'Internal Server Error' });
+    } else {
+      console.log('Word successfully scrapped');
+      res.status(200).json({ success: true, message: 'Word scrapped successfully' });
     }
   });
 });

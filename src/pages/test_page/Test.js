@@ -31,10 +31,7 @@ export default function Test() {
   };
 
   const handleAddInput = () => {
-    setAddWords((prevAddWords) => [
-      ...prevAddWords,
-      { word: "", mean: "" },
-    ]);
+    setAddWords((prevAddWords) => [...prevAddWords, { word: "", mean: "" }]);
   };
 
   const handleRegisterClick = async () => {
@@ -63,6 +60,11 @@ export default function Test() {
     } catch (error) {
       console.error("Error registering words:", error);
     }
+  };
+
+  const handleResetClick = () => {
+    // 페이지를 리로드합니다.
+    window.location.reload();
   };
 
   return (
@@ -112,13 +114,21 @@ export default function Test() {
           />
         </Link>
 
-        <PuppleInputButton type={"button"} title={"입력 추가"} onClick={handleAddInput} />
+        <PuppleInputButton
+          type={"button"}
+          title={"입력 추가"}
+          onClick={handleAddInput}
+        />
 
         <Link to="/test-start">
           <PuppleInputButton type={"submit"} title={"시작"} />
         </Link>
 
-        <PuppleInputButton type={"button"} title={"초기화"} />
+        <PuppleInputButton
+          type={"button"}
+          title={"초기화"}
+          onClick={handleResetClick}
+        />
       </BottomRow>
     </>
   );

@@ -3,17 +3,13 @@ import Text from "../../components/table/Text";
 
 import { WordContainer, TableContainer } from "./style";
 
-export default function WordTable({ studyWord, onDeleteWord, updateScrapStatus }) {
+export default function WordTable(props) {
 
   return (
     <WordContainer>
       <Text />
       <TableContainer>
-        <Table
-          studyWord={studyWord}
-          onDeleteWord={onDeleteWord}
-          updateScrapStatus={updateScrapStatus}
-        />
+        <Table props={props.storedUser} />
       </TableContainer>
     </WordContainer>
   );

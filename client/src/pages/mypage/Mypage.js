@@ -17,6 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Mypage({ username }) {
+  console.log(username);
   const navigate = useNavigate();
   const storedUser = localStorage.getItem("user");
   const userObject = storedUser ? JSON.parse(storedUser) : null;

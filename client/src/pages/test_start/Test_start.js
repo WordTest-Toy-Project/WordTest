@@ -17,12 +17,11 @@ const TestStart = () => {
   const [user, setUser] = useState(storedUser);
   const [wordQuiz, setWordQuiz] = useState([]);
   const [answers, setAnswers] = useState(Array(wordQuiz.length).fill(''));
-
+  const [result, setResult] = useState([]);
+  console.log(result);
   useEffect(() => {
     if (user && user.words) {
-      // 단어 배열을 복사하여 새로운 배열을 만듭니다.
       const shuffledWords = [...user.words];
-      // Fisher-Yates 알고리즘을 사용하여 배열을 섞습니다.
       for (let i = shuffledWords.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledWords[i], shuffledWords[j]] = [shuffledWords[j], shuffledWords[i]];
@@ -32,13 +31,12 @@ const TestStart = () => {
     }
   }, [user]);
 
-  if(user === null){
+  if (user === null) {
     setUser(user);
     navigate("/");
   }
 
   const handleInputChange = (value, index) => {
-    // 해당 인덱스의 단어에 대한 상태를 업데이트합니다.
     setAnswers((prevAnswers) => {
       const newAnswers = [...prevAnswers];
       newAnswers[index] = value;
@@ -46,27 +44,45 @@ const TestStart = () => {
     });
     
   };
+console.log("현재 정답 상태:", answers);
+  const handleAnswerSubmit = () => {
+    if (!wordQuiz) {
+      return;
+    }
+
+    const newResult = wordQuiz.map((wordObj, index) => {
+      return {
+        word: wordObj.word,
+        meaning: wordObj.meaning,
+        is_wrong: wordObj.meaning !== answers[index],
+      };
+    });
+    setResult(newResult);
+    localStorage.setItem("answer", JSON.stringify(answers));
+  };
+
   return (
     <>
       <Header $back={true} $title={false} $addWord={false} $gear={true} />
       <Title title={"Word Test"} />
-      <Text>{"10"} 문제</Text>
+      <Text>{wordQuiz.length} 문제</Text>
 
       <WordOrMeanBlock>
-        {wordQuiz.map((wordObj, index) => (  <div key={index}>
-          <WordOrMean>{`${index + 1}. ${wordObj.word}`}</WordOrMean>
-          <InputText
-            value={answers[index]}
-            onChange={(e)=>handleInputChange(e.target.value)}
-          />
-        </div>
+        {wordQuiz.map((wordObj, index) => (
+          <div key={index}>
+            <WordOrMean>{`${index + 1}. ${wordObj.word}`}</WordOrMean>
+            <InputText
+              value={answers[index]}
+              onChange={(e) => handleInputChange(e.target.value, index)}
+            />
+          </div>
         ))}
       </WordOrMeanBlock>
       <BottomRow>
         <PuppleInputButton
           type="button"
           title={"제출"}
-          //onClick={handleAnswerSubmit}
+          onClick={handleAnswerSubmit}
         />
       </BottomRow>
     </>

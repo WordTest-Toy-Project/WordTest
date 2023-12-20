@@ -1,7 +1,8 @@
 [
     {
-      "user_id": 0,
-      "id": "1",
+
+      "id": 0,
+      "username": "1",
       "password": "1",
       "words": [
         {
@@ -56,27 +57,74 @@
           }
     ]
     },
+    
     {
-      "user_id": 1,
-      "id": "2",
+     "id": 1,
+      "username": "2",
       "password": "2",
       "words": [
-        
-            {"word": "phone", "meaning": "폰", "is_wrong": false},
-            {"word": "banana", "meaning": "바나나", "is_wrong": false},
-            {"word": "car", "meaning": "자동차", "is_wrong": false},
-            {"word": "book", "meaning": "책", "is_wrong": false},
-            {"word": "ear", "meaning": "귀", "is_wrong": false},
-            {"word": "head", "meaning": "머리", "is_wrong": false},
-            {"word": "mountain", "meaning": "산", "is_wrong": false},
-            {"word": "ocean", "meaning": "바다", "is_wrong": false},
-            {"word": "pencil", "meaning": "연필", "is_wrong": false},
-            {"word": "umbrella", "meaning": "우산", "is_wrong": false}
-    
-          
+        {
+          "word": "phone", 
+          "meaning": "폰", 
+          "is_wrong": false
+        },
+        {
+          "word": "banana", 
+          "meaning": "바나나", 
+          "is_wrong": false
+        },
+        {
+          "word": "car", 
+          "meaning": "자동차", 
+          "is_wrong": false
+        },
+        {
+          "word": "book", 
+          "meaning": "책", 
+          "is_wrong": false
+        },
+        {
+          "word": "ear", 
+          "meaning": "귀", 
+          "is_wrong": false
+        },
+        {
+          "word": "head", 
+          "meaning": "머리", 
+          "is_wrong": false
+        },
+        {
+          "word": "mountain", 
+          "meaning": "산", 
+          "is_wrong": false
+        },
+        {
+          "word": "ocean", 
+          "meaning": "바다", 
+          "is_wrong": false
+        },
+        {
+          "word": "pencil", 
+          "meaning": "연필", 
+          "is_wrong": false
+        },
+        {
+          "word": "umbrella", 
+          "meaning": "우산", 
+          "is_wrong": false
+        }  
       ],
-      "bookmark": [{"word": "pencil", "meaning": "연필"},
-      {"word": "umbrella", "meaning": "우산"}]
+      "bookmark": [
+        {
+          "word": "pencil", 
+          "meaning": "연필"
+        },
+        {
+          "word": "umbrella", 
+          "meaning": "우산"
+          }
+        ]
+
     }
   ]
   

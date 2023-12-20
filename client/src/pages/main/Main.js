@@ -25,9 +25,10 @@ export default function Main() {
 
   useEffect(() => {
     // sampleJson 배열에서 무작위 단어 가져오기
-    const randomIndex = Math.floor(Math.random() * sampleJson.length);
-    const randomWordData = sampleJson[randomIndex];
+    const randomIndex = Math.floor(Math.random() * sampleJson[0].words.length);
+    const randomWordData = sampleJson[0].words[randomIndex];
     setRandomWord({ word: randomWordData.word, meaning: randomWordData.meaning });
+    
   }, [sampleJson]);
 
   return (

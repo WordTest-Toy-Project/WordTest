@@ -6,7 +6,8 @@ export const InputText = styled.input`
   background-color: #0c0c0d;
   color: white;
   font-size: 30px;
-  width: 350px;
+  width: 300px;
+  text-align:center;
 `;
 
 export const Text = styled.p`

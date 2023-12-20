@@ -20,22 +20,38 @@ import Header from "../../components/header/Header";
 
 
 export default function Main() {
-  const [randomWord, setRandomWord] = useState({word:"", meaning:""});
-  const fetchRandomWord = async () =>{
-    try{
-      const response = await axios.get(
-        `${process.env.REACT_APP_LOCAL_URL}/main`
-        );
-      setRandomWord(response.data);
-
-    }
-    catch (error) {
+  const [randomWord, setRandomWord] = useState({ word: "", meaning: "" });
+  const [sampleData, setSampleData] = useState([]);
+  
+  const fetchRandomWord = () => {
+    try {
+      // sample.json 파일에서 랜덤 단어 가져오기
+      const randomIndex = Math.floor(Math.random() * sampleData.length);
+      const randomWordData = sampleData[randomIndex];
+      setRandomWord({ word: randomWordData.word, meaning: randomWordData.meaning });
+    } catch (error) {
       console.log("Error fetching random word:", error);
     }
-  }
+  };
+
   useEffect(() => {
+    // sample.json 파일에서 데이터 가져오기
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/sample.json");
+        setSampleData(response.data);
+      } catch (error) {
+        console.error("Error fetching sample data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    // 페이지가 로드될 때마다 랜덤 단어 가져오기
     fetchRandomWord();
-  },[]);
+  }, [sampleData]);
 
   return (
     <div>

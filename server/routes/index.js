@@ -246,31 +246,54 @@ router.delete('/deleteUser', (req, res) => {
   });
 });
 
-router.put('/updateword/:id', async (req, res) => {
+
+router.put("/updateword/:id", async (req, res) => {
   try {
-    const { id } = req.params;
     const { userAnswer } = req.body;
+    try {
+      const wordId = req.params.id;
+  
+      // Check if the word ID is defined
+      if (!wordId) {
+        return res.status(400).json({ error: "Invalid word ID" });
+      }
+  
+      // Rest of the code for updating the word
+      // ...
+  
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Error updating word:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
 
     // Fetch the word from the database based on the provided ID
-    const [word] = await db.query('SELECT * FROM your_table_name WHERE id = ?', [id]);
+    const word = await db.query("SELECT * FROM words WHERE word_id = ?", [wordId]);
 
-    if (!word) {
-      return res.status(404).json({ error: 'Word not found' });
+    // Check if the word exists
+    if (word && word.length > 0) {
+      const dbMeaning = word[0].meaning;
+
+      // Compare user's answer with the correct meaning
+      const isCorrect = userAnswer === dbMeaning;
+
+      if (!isCorrect) {
+        // Update the 'is_wrong' field to true if the answer is incorrect
+        await db.query("UPDATE words SET is_wrong = true WHERE word_id = ?", [wordId]);
+      }
+
+      // Send a response indicating success or failure
+      res.json({ success: true, isCorrect });
+    } else {
+      // Handle the case where the word is not found
+      res.status(404).json({ error: "Word not found" });
     }
-
-    // Compare user's answer with the actual meaning and update 'is_wrong' accordingly
-    const isWrong = userAnswer !== word.mean;
-    
-    if (isWrong) {
-      await db.query('UPDATE your_table_name SET is_wrong = false WHERE id = ?', [id]);
-    }
-
-    res.json({ message: 'Word updated successfully', isWrong });
   } catch (error) {
-    console.error('Error updating word:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error updating word:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 
 router.post('/updateAll', async (req, res) => {
   try {

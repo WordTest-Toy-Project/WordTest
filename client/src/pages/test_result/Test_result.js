@@ -5,30 +5,15 @@ import PuppleInputButton from "../../components/button/PuppleButton/PuppleInputB
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import { Desc, Result, WrongWord, WordLength, BottomRow } from "./style";
-import axios from "axios";
+import sampleJson from '../../sample.json';
+
 export default function Test_result() {
   const [wrongWords, setWrongWords] = useState([]);
 
-  useEffect(() => {
-    const fetchWrongWords = async () => {
-      try {
-        // is_wrong가 true인 단어를 불러오는 API를 호출합니다.
-        const response = await axios.get(`${process.env.REACT_APP_LOCAL_URL}/test-result`);
-        const data = response.data;
-    
-        if (Array.isArray(data.words)) {
-          // data.words가 배열인 경우에만 업데이트
-          setWrongWords(data.words);
-        } else {
-          console.error("Invalid data format:", data);
-        }
-      } catch (error) {
-        console.error("Error fetching wrong words:", error);
-      }
-    };
-
-    fetchWrongWords();
-  }, []);
+  useEffect(()=>{
+    const wrongWords = sampleJson[0].words.filter(word => word.is_wrong );
+    setWrongWords(wrongWords);
+  },[])
 
 
   return (
@@ -47,11 +32,11 @@ export default function Test_result() {
             <p>{index+1}</p>
           </div>
           <WordLength>
-            <p style={{ padding: "0 30px" }}>{word.word}</p>
+            <p style={{ padding: "0 30px" , textAlign:"center" }}>{word.word}</p>
             <hr style={{ marginTop: "-20px" }} />
           </WordLength>
           <WordLength>
-            <p style={{ padding: "0 30px" }}>{}</p>
+            <p style={{ padding: "0 30px", textAlign:"center"}}>{word.meaning}</p>
             <hr style={{ marginTop: "-20px" }} />
           </WordLength>
         </WrongWord>

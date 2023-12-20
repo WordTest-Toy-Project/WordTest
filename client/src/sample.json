@@ -9,7 +9,7 @@
           "id": 0,
           "word": "apple",
           "meaning": "사과",
-          "is_wrong": false,
+          "is_wrong": true,
           "is_scrap": false
         },
         {
@@ -23,7 +23,7 @@
           "id": 2,
           "word": "computer",
           "meaning": "컴퓨터",
-          "is_wrong": false,
+          "is_wrong": true,
           "is_scrap": false
         },
         {
@@ -37,7 +37,7 @@
           "id": 4,
           "word": "island",
           "meaning": "섬",
-          "is_wrong": false,
+          "is_wrong": true,
           "is_scrap": true
         },
         {

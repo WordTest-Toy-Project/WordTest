@@ -1,7 +1,7 @@
 //library
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import axios from "axios";
+import { useState,useEffect } from "react";
+//import axios from "axios";
 import {
   BottomRow,
   ExampleInput,
@@ -16,11 +16,36 @@ import Header from "../../components/header/Header";
 import PuppleInputButton from "../../components/button/PuppleButton/PuppleInputButton";
 import Title from "../../components/title/Title";
 import WordAndMeanInput from "../../components/input/WordAndMeanInput";
+//sample code
+import sampleJson from '../../sample.json';
+//import { AddWord } from "../../components/header/style";
+
 
 export default function Test() {
+  // 초기 화면 입력창 개수
   const [addWords, setAddWords] = useState(
-    Array.from({ length: 3 }, () => ({ word: "", mean: "" })),
+    Array.from({ length: 3 }, () => ({ id:sampleJson[0].words.length-1 ,word: "", mean: "" }))
   );
+
+
+  // 단어 study에 추가
+  const handleRegisterClick = () => {
+    const newWords = addWords.map((wordObj, index) => ({
+      id: sampleJson[0].words.length + index,
+      word: wordObj.word,
+      mean: wordObj.mean,
+      isWrong: false,
+      isScrap: false,
+    }));
+    console.log(newWords);
+    
+    sampleJson[0].words.push(...newWords);
+    setAddWords(Array.from({ length: 3 }, () => ({ word: "", mean: "" })));
+    console.log(sampleJson[0].words);
+    localStorage.setItem('sampleJson',JSON.stringify(sampleJson));
+    
+  };
+
 
   const handleInputChange = (index, field, value) => {
     setAddWords((prevAddWords) => {
@@ -29,52 +54,25 @@ export default function Test() {
       return newAddWords;
     });
   };
-  const handleStartClick = async () => {
-    try {
-      // Send a request to your Node.js backend to update 'is_wrong' to false
-      const response = await axios.post(`${process.env.REACT_APP_LOCAL_URL}/updateAll`);
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error updating is_wrong:', error);
-    }
-  };
-  
+
   const handleAddInput = () => {
     setAddWords((prevAddWords) => [...prevAddWords, { word: "", mean: "" }]);
   };
 
-  const handleRegisterClick = async () => {
-    try {
-      // 만약 단어 또는 뜻이 입력되지 않은 경우를 필터링합니다.
-      const validAddWords = addWords.filter(
-        (wordObj) => wordObj.word.trim() !== "" && wordObj.mean.trim() !== "",
-      );
-
-      if (validAddWords.length === 0) {
-        // 모든 단어가 비어있는 경우 경고 메시지를 출력하거나 다른 처리를 할 수 있습니다.
-        console.warn("모든 단어를 입력하세요.");
-        return;
-      }
-
-      // 서버로 데이터 전송
-      const response = await axios.post(
-        `${process.env.REACT_APP_LOCAL_URL}/addword`,
-        {
-          words: validAddWords,
-        },
-      );
-
-      // 서버 응답 처리
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error registering words:", error);
-    }
-  };
-
+  //초기화 버튼
   const handleResetClick = () => {
     // 페이지를 리로드합니다.
     window.location.reload();
   };
+
+  useEffect(() => {
+    // 페이지 로딩 시 로컬 스토리지에서 데이터 불러오기
+    const storedSampleJson = JSON.parse(localStorage.getItem('sampleJson'));
+    if (storedSampleJson) {
+      // 데이터가 있다면 적용
+      
+    }
+  }, []);
 
   return (
     <>
@@ -109,11 +107,13 @@ export default function Test() {
           }}>
             
               <WordAndMeanInput
+                className={"w"}
                 value={wordObj.word}
                 onChange={(e) => handleInputChange(index, "word", e.target.value)}
                 placeholder="단어"
               />
               <WordAndMeanInput
+              className={"m"}
                 value={wordObj.mean}
                 onChange={(e) => handleInputChange(index, "mean", e.target.value)}
                 placeholder="뜻"
@@ -139,7 +139,7 @@ export default function Test() {
         />
 
         <Link to="/test-start">
-          <PuppleInputButton type={"submit"} title={"시작"} onClick={handleStartClick}/>
+          <PuppleInputButton type={"submit"} title={"시작"} />
         </Link>
 
         <PuppleInputButton

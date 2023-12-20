@@ -30,8 +30,11 @@ export const WrongWord = styled.div`
 `;
 
 export const WordLength = styled.div`
+  
+  
   width: 300px;
   color: white;
+  
 `;
 
 export const BottomRow = styled.div`

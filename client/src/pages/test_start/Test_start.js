@@ -52,7 +52,7 @@ export default function Test_start() {
     try {
       const promises = randomWords.map(async (wordObj, index) => {
         // 사용자가 입력한 답과 정답을 비교
-        const isWrong = userAnswers[index]?.toString() !== wordObj.mean;
+        const isWrong = userAnswers[index]?.mean !== wordObj.mean;
         
         if (isWrong) {
           // 답이 틀린 경우, 데이터베이스 업데이트

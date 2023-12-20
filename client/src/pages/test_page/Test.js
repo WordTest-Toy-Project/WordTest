@@ -29,7 +29,16 @@ export default function Test() {
       return newAddWords;
     });
   };
-
+  const handleStartClick = async () => {
+    try {
+      // Send a request to your Node.js backend to update 'is_wrong' to false
+      const response = await axios.post(`${process.env.REACT_APP_LOCAL_URL}/updateAll`);
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error updating is_wrong:', error);
+    }
+  };
+  
   const handleAddInput = () => {
     setAddWords((prevAddWords) => [...prevAddWords, { word: "", mean: "" }]);
   };
@@ -130,7 +139,7 @@ export default function Test() {
         />
 
         <Link to="/test-start">
-          <PuppleInputButton type={"submit"} title={"시작"} />
+          <PuppleInputButton type={"submit"} title={"시작"} onClick={handleStartClick}/>
         </Link>
 
         <PuppleInputButton

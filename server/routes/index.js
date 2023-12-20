@@ -218,7 +218,7 @@ router.get("/test-start", async (req, res) => {
 
 
 router.get("/test-result", async(req,res)=>{
-  const getWrongWordsQuery = 'SELECT * FROM words WHERE is_wrong = true';
+  const getWrongWordsQuery = 'SELECT word,meaning FROM words WHERE is_wrong = true ORDER BY word ASC';
 
   db.query(getWrongWordsQuery, (err, results) => {
     if (err) {
@@ -253,7 +253,7 @@ router.put('/updateword/id', (req, res) => {
   const userAnswer = req.body.userAnswer;
 
   // 데이터베이스에서 해당 id의 단어 정보를 가져옵니다.
-  const getWordQuery = "SELECT * FROM words WHERE word_id = ?";
+  const getWordQuery = "SELECT word,meaning FROM words WHERE word_id = ?";
 
   db.query(getWordQuery, [id], (error, results) => {
     if (error) {
@@ -280,6 +280,19 @@ router.put('/updateword/id', (req, res) => {
       });
     }
   });
+});
+
+router.post('/updateAll', async (req, res) => {
+  try {
+    // Update 'is_wrong' to false for all relevant records in your database
+    const updateQuery = 'UPDATE words SET is_wrong = false WHERE is_wrong = true';
+    await db.query(updateQuery);
+
+    res.json({ message: 'is_wrong updated successfully'});
+  } catch (error) {
+    console.error('Error updating is_wrong:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 module.exports = router;

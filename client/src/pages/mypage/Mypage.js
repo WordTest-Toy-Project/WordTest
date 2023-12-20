@@ -1,6 +1,6 @@
 import Title from "../../components/title/Title";
 import Header from "../../components/header/Header";
-
+import sampleJson from '../../sample.json';
 import {
   IdBox,
   Div,
@@ -12,32 +12,35 @@ import {
   WordAndMean,
   Img,
 } from "./style";
-import axios from "axios";
+
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Mypage({ username }) {
   const navigate = useNavigate();
   const storedUser = localStorage.getItem("user");
-
-  // 가져온 정보가 있다면 JSON 형태로 파싱하여 사용자 정보 추출
   const userObject = storedUser ? JSON.parse(storedUser) : null;
   const username0 = userObject ? userObject.username : "";
 
-  const handleDeleteAccount = async () => {
-    try {
-      // 서버로 DELETE 요청 보내기
-      const response = await axios.delete(`${process.env.REACT_APP_LOCAL_URL}/deleteUser`, {
-        data: { username },
-      });
+  const [imageIndex, setImageIndex] = useState(0);
 
-      // 응답 처리
-      console.log(response.data.message); // 서버에서 전송한 메시지 출력 또는 다른 처리 수행
-      localStorage.removeItem("user");
-      navigate("/");
-    } catch (error) {
-      console.error("Error deleting user:", error);
-      // 에러 처리: 사용자에게 알림 또는 다른 처리 수행
+  const handleWordAndMeanToggle = () => {
+    // Toggle between different images
+    setImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+  };
+
+  const handleDeleteAccount = () => {
+    const isConfirmed = window.confirm("정말로 계정을 삭제하시겠어요?");
+
+    if(isConfirmed){
+      //아이디 찾기
+    const updatedSampleJson = sampleJson.filter((user) => user.id !== userObject.id);
+    localStorage.setItem('sampleJson', JSON.stringify(updatedSampleJson));
+    localStorage.removeItem("user");
+    navigate("/");
+    console.log(sampleJson[0].id);
     }
+    
   };
 
   return (
@@ -57,10 +60,11 @@ export default function Mypage({ username }) {
         <Text>테스트</Text>
         <Horizon></Horizon>
 
-        <WordAndMean>
+        <WordAndMean onClick={handleWordAndMeanToggle}>
           <Extra style={{ marginLeft: 150 + "px" }}>단어/뜻</Extra>
-          <Img src="/image/switch.svg"></Img>
+          <Img src={imageIndex === 0 ? "/image/s2.png" : "/image/s1.png"}></Img>
         </WordAndMean>
+
 
         <Bottom>
           <BottomButton key={username} onClick={() => handleDeleteAccount()}>

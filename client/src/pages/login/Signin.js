@@ -19,8 +19,18 @@ export default function Signin() {
   });
 
   const LoginHandler = () => {
-    
-  }
+    const userLogin = sampleJson.find((jsonUser) => 
+      jsonUser.username === user.username && jsonUser.password === user.password
+    );
+    if(userLogin) {
+      console.log("로그인 성공");
+      navigate("/main");
+      localStorage.setItem("user", JSON.stringify(userLogin));
+      setUser({ username: "", password: "" });
+    } else {
+      console.log("로그인 실패");
+    }
+  };
 
   return (
     <>

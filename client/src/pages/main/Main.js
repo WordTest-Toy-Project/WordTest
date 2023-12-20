@@ -12,46 +12,23 @@ import {
 //library
 import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+//import axios from "axios";
 
 //components
 
 import Header from "../../components/header/Header";
-
+//samplecode
+import sampleJson  from "../../sample.json"
 
 export default function Main() {
   const [randomWord, setRandomWord] = useState({ word: "", meaning: "" });
-  const [sampleData, setSampleData] = useState([]);
-  
-  const fetchRandomWord = () => {
-    try {
-      // sample.json 파일에서 랜덤 단어 가져오기
-      const randomIndex = Math.floor(Math.random() * sampleData.length);
-      const randomWordData = sampleData[randomIndex];
-      setRandomWord({ word: randomWordData.word, meaning: randomWordData.meaning });
-    } catch (error) {
-      console.log("Error fetching random word:", error);
-    }
-  };
 
   useEffect(() => {
-    // sample.json 파일에서 데이터 가져오기
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("/sample.json");
-        setSampleData(response.data);
-      } catch (error) {
-        console.error("Error fetching sample data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    // 페이지가 로드될 때마다 랜덤 단어 가져오기
-    fetchRandomWord();
-  }, [sampleData]);
+    // sampleJson 배열에서 무작위 단어 가져오기
+    const randomIndex = Math.floor(Math.random() * sampleJson.length);
+    const randomWordData = sampleJson[randomIndex];
+    setRandomWord({ word: randomWordData.word, meaning: randomWordData.meaning });
+  }, [sampleJson]);
 
   return (
     <div>
@@ -64,7 +41,7 @@ export default function Main() {
           <TodayWord>
             오늘의 <Yellow>단어</Yellow>
           </TodayWord>
-          <RandomWord onLoad={fetchRandomWord}>{randomWord.word} : {randomWord.meaning} </RandomWord>
+          <RandomWord>{randomWord.word} : {randomWord.meaning}</RandomWord>
         </WordContainer>
 
         <Horizon></Horizon>

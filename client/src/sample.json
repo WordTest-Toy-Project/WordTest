@@ -1,8 +1,8 @@
 [
     {
       "user_id": 0,
-      "아이디": "1",
-      "비번": "1",
+      "id": "1",
+      "password": "1",
       "words": [
         {
           "word": "apple",
@@ -58,8 +58,8 @@
     },
     {
       "user_id": 1,
-      "아이디": "2",
-      "비번": "2",
+      "id": "2",
+      "password": "2",
       "words": [
         
             {"word": "phone", "meaning": "폰", "is_wrong": false},

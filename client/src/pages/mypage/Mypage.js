@@ -21,7 +21,7 @@ export default function Mypage({ username }) {
 
   // 가져온 정보가 있다면 JSON 형태로 파싱하여 사용자 정보 추출
   const userObject = storedUser ? JSON.parse(storedUser) : null;
-  const username0 = userObject ? userObject.username : "";
+  const userId = userObject ? userObject.username : "";
 
   const handleDeleteAccount = async () => {
     try {
@@ -47,7 +47,7 @@ export default function Mypage({ username }) {
 
         <Title title={"My Page"}></Title>
 
-        <IdBox>ID : {username0}</IdBox>
+        <IdBox>ID : {userId}</IdBox>
         <Text></Text>
         <Horizon></Horizon>
         <Link to="/favorite" style={{ textDecoration: "none" }}>
@@ -63,7 +63,7 @@ export default function Mypage({ username }) {
         </WordAndMean>
 
         <Bottom>
-          <BottomButton key={username} onClick={() => handleDeleteAccount()}>
+          <BottomButton onClick={() => handleDeleteAccount()}>
             탈퇴하기
           </BottomButton>
 

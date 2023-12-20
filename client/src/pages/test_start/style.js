@@ -1,42 +1,40 @@
 import styled from "styled-components";
 
-export const InputText = styled.input`
-  border: none;
-  border-bottom: 3px solid #b6b3b3;
-  background-color: #0c0c0d;
-  color: white;
-  font-size: 30px;
-  width: 300px;
-  text-align:center;
-`;
-
 export const Text = styled.p`
   color: #b6b3b3;
   font-size: 50px;
-  padding-left: 20px;
   margin: 0;
+  margin-left: 30px;
 `;
 
 export const BottomRow = styled.div`
   position: fixed;
   display: flex;
   gap: 50px;
-  bottom: 10px;
-  margin-left: 72px;
-  margin-right: 72px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
   justify-content: right;
   align-items: center;
-  width: 90%;
 `;
 
 export const WordOrMean = styled.h3`
   font-size: 50px;
   color: white;
+  margin:20px 0;
 `;
 
 export const WordOrMeanBlock = styled.div`
-  align-items: center;
-  justify-content: center;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  width: 400px;
+  height: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style:none;
+  &::-webkit-scrollbar{
+    display:none;
+  }
 `;

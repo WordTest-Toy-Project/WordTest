@@ -20,7 +20,7 @@ export default function Mypage({ username }) {
   const navigate = useNavigate();
   const storedUser = localStorage.getItem("user");
   const userObject = storedUser ? JSON.parse(storedUser) : null;
-  const username0 = userObject ? userObject.username : "";
+  const userId = userObject ? userObject.username : "";
 
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -50,7 +50,7 @@ export default function Mypage({ username }) {
 
         <Title title={"My Page"}></Title>
 
-        <IdBox>ID : {username0}</IdBox>
+        <IdBox>ID : {userId}</IdBox>
         <Text></Text>
         <Horizon></Horizon>
         <Link to="/favorite" style={{ textDecoration: "none" }}>
@@ -67,7 +67,7 @@ export default function Mypage({ username }) {
 
 
         <Bottom>
-          <BottomButton key={username} onClick={() => handleDeleteAccount()}>
+          <BottomButton onClick={() => handleDeleteAccount()}>
             탈퇴하기
           </BottomButton>
 

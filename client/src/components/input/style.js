@@ -25,3 +25,14 @@ export const Input = styled.input`
   margin-left: 50px;
   margin-right: 50px;
 `;
+
+export const InputValue = styled.input`
+  border: none;
+  border-bottom: 3px solid #b6b3b3;
+  background-color: #0c0c0d;
+  color: white;
+  font-size: 30px;
+  width: 400px;
+  text-align:center;
+  outline: none;
+`;

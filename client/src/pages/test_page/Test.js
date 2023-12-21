@@ -96,16 +96,12 @@ export default function Test() {
         ></ExampleInput>
       </HorizonBlock>
       
-      <WordAndMeanBlock  style={{ 
-        marginTop: "70px", padding: "10px", border: "1px solid #ccc", borderRadius:"20px"
-        }}>
+      <WordAndMeanBlock>
         {addWords.map((wordObj, index) => (
           <div key={index} style={{
             display: "flex",
             flexDirection: "row",
-           
           }}>
-            
               <WordAndMeanInput
                 className={"w"}
                 value={wordObj.word}

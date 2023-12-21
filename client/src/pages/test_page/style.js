@@ -10,28 +10,28 @@ export const HorizonBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top:-100px;
+  gap: 100px;
 `;
 export const InputBlock = styled.div`
-  display: flex;
-  position: absolute;
-  right: 20px;
-  top: 350px;
+  text-align:right;
+  margin-right: 20px;
 `;
 export const WordAndMeanBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-  max-height: 380px; // 원하는 높이로 설정
-  max-width: 1000px;
+  max-width: 900px;
+  height: 600px;
+  margin: 0 auto;
+  margin-top: 70px;
+  border: 1px solid #ccc;
+  border-radius:20px;
+  padding: 10px 0;
   overflow: hidden;
   overflow-y: scroll;
   &::-webkit-scrollbar{
     display:none;
   }
-
 `;
 
 export const InputText = styled.input`
@@ -44,13 +44,10 @@ export const InputText = styled.input`
   text-align: center;
 `;
 export const ExampleInput = styled(InputText)`
-  width: 400px;
+  width: 350px;
   font-size: 25px;
-  margin-top: 200px;
   text-align: left;
-  margin-left: 50px;
-  margin-right: 50px;
-
+  margin-top: 30px;
 `;
 
 export const NumInput = styled(InputText)`
@@ -66,13 +63,13 @@ export const Text = styled.p`
 `;
 
 export const BottomRow = styled.div`
-  position: fixed;
   display: flex;
   gap: 50px;
   bottom: 10px;
-  margin-left: 72px;
-  margin-right: 72px;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
+  width: 750px;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 10px;
+  left: 10%;
+  right: 10%;
 `;

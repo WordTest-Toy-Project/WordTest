@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TableContainer, Row0, Row1, Row2, Row3, Img } from "./style";
+import { TableContainer, Row0, Row1, Row2, Row3, Img as StyledImg } from "./style";
 
 export default function Table({ storedUser }) {
   const [deletedUserId, setDeletedUserId] = useState(null);
@@ -19,12 +19,22 @@ export default function Table({ storedUser }) {
     setDeletedUserId(index);
   };
 
+  const handleScrap = (index) => {
+    // 스크랩 상태를 변경하여 이미지 업데이트
+    const updatedUser = [...filteredUser];
+    updatedUser[index].is_scrap = !updatedUser[index].is_scrap;
+    setFilteredUser(updatedUser);
+  };
+
   return (
     <>
       {filteredUser.map((test, index) => (
         <TableContainer key={index}>
           <Row0>
-            <Image test={test} userId={index} />
+            <Image
+              isScrap={test.is_scrap}
+              onClick={() => handleScrap(index)}
+            />
           </Row0>
           <Row1>{test.word}</Row1>
           <Row2>{test.meaning}</Row2>
@@ -43,6 +53,6 @@ export default function Table({ storedUser }) {
 }
 
 // Image 컴포넌트
-function Image(props) {
-  return <Img $isScrap={props.test.is_scrap} />;
+function Image({ isScrap, onClick }) {
+  return <StyledImg $isScrap={isScrap} onClick={onClick} />;
 }

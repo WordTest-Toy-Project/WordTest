@@ -7,17 +7,22 @@ import {
   Row3,
   Img,
 } from "./style";
+import sampleJson from "../../sample.json";
 
 export default function Table({ storedUser }) {
   
   const [deletedUserId, setDeletedUserId] = useState(null);
   useEffect(() => {
     if (deletedUserId !== null) {
-      const updatedUser = storedUser.filter((_, index) => index !== deletedUserId);
-      localStorage.setItem("delete", JSON.stringify(updatedUser));
-    }
-  }, [deletedUserId, storedUser]);
+      
+      const updatedWords = sampleJson[0].words.filter((_, index) => index !== deletedUserId);
+      
+      sampleJson[0].words.pop(updatedWords);
+      localStorage.setItem("sampleJson", JSON.stringify(sampleJson));
 
+    }
+  }, []);
+  console.log(sampleJson[0].words)
   return (
     <>
       {storedUser.map((test, index) => (

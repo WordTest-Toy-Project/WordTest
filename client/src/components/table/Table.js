@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
 
 import {
   TableContainer,
@@ -9,10 +8,6 @@ import {
   Row3,
   Img,
 } from "./style";
-
-=======
-import { TableContainer, Row0, Row1, Row2, Row3, Img as StyledImg } from "./style";
->>>>>>> js/dev
 
 export default function Table({ storedUser }) {
   const [deletedUserId, setDeletedUserId] = useState(null);
@@ -68,5 +63,5 @@ export default function Table({ storedUser }) {
 
 // Image 컴포넌트
 function Image({ isScrap, onClick }) {
-  return <StyledImg $isScrap={isScrap} onClick={onClick} />;
+  return <Img $isScrap={isScrap} onClick={onClick} />;
 }

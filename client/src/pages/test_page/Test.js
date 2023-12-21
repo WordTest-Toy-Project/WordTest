@@ -33,16 +33,16 @@ export default function Test() {
     const newWords = addWords.map((wordObj, index) => ({
       id: sampleJson[0].words.length + index,
       word: wordObj.word,
-      mean: wordObj.mean,
+      meaning: wordObj.meaning,
       isWrong: false,
       isScrap: false,
     }));
     console.log(newWords);
     
     sampleJson[0].words.push(...newWords);
-    setAddWords(Array.from({ length: 3 }, () => ({ word: "", mean: "" })));
+    setAddWords(Array.from({ length: 3 }, () => ({ word: "", meaning: "" })));
     console.log(sampleJson[0].words);
-    localStorage.setItem('sampleJson',JSON.stringify(sampleJson));
+    localStorage.setItem(sampleJson,JSON.stringify(sampleJson));
     
   };
 
@@ -56,7 +56,7 @@ export default function Test() {
   };
 
   const handleAddInput = () => {
-    setAddWords((prevAddWords) => [...prevAddWords, { word: "", mean: "" }]);
+    setAddWords((prevAddWords) => [...prevAddWords, { word: "", meaning: "" }]);
   };
 
   //초기화 버튼
@@ -114,8 +114,8 @@ export default function Test() {
               />
               <WordAndMeanInput
               className={"m"}
-                value={wordObj.mean}
-                onChange={(e) => handleInputChange(index, "mean", e.target.value)}
+                value={wordObj.meaning}
+                onChange={(e) => handleInputChange(index, "meaning", e.target.value)}
                 placeholder="뜻"
               />
             

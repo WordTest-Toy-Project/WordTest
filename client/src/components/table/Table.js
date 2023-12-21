@@ -14,7 +14,7 @@ export default function Table({ storedUser, changeInfo }) {
   useEffect(() => {
     if (deletedUserId !== null) {
       const updatedUser = storedUser.filter((_, index) => index !== deletedUserId);
-      localStorage.setItem("user", JSON.stringify(updatedUser));
+      localStorage.setItem("delete", JSON.stringify(updatedUser));
     }
   }, [deletedUserId, storedUser]);
 

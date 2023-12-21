@@ -65,8 +65,7 @@ export const Text = styled.p`
 export const BottomRow = styled.div`
   display: flex;
   gap: 50px;
-  bottom: 10px;
-  width: 750px;
+  width: 780px;
   margin: 0 auto;
   position: fixed;
   bottom: 10px;

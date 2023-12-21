@@ -97,7 +97,8 @@ export default function Test() {
       </HorizonBlock>
       
       <WordAndMeanBlock  style={{ 
-        margin: "10px", padding: "10px", border: "1px solid #ccc", borderRadius:"20px"}}>
+        marginTop: "70px", padding: "10px", border: "1px solid #ccc", borderRadius:"20px"
+        }}>
         {addWords.map((wordObj, index) => (
           <div key={index} style={{
             display: "flex",

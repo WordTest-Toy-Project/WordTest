@@ -18,15 +18,20 @@ export const InputBlock = styled.div`
   right: 20px;
   top: 350px;
 `;
-export const WordAndMeanBlock = styled(HorizonBlock)`
-    max-height: 400px; // 원하는 높이로 설정
-    overflow: hidden;
+export const WordAndMeanBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-height: 380px; // 원하는 높이로 설정
+  max-width: 1000px;
+  overflow: hidden;
   overflow-y: scroll;
-  -ms-overflow-style:none;
   &::-webkit-scrollbar{
     display:none;
   }
-    flex-direction: column;
+
 `;
 
 export const InputText = styled.input`

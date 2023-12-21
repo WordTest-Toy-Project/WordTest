@@ -4,6 +4,7 @@
       "id": 0,
       "username": "1",
       "password": "1",
+      "wordOrMean" : true,
       "words": [
         {
           "id": 0,

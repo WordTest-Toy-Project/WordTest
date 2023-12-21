@@ -63,7 +63,9 @@ export default function Mypage({ username }) {
 
         <WordAndMean onClick={handleWordAndMeanToggle}>
           <Extra style={{ marginLeft: 150 + "px" }}>단어/뜻</Extra>
-          <Img src={imageIndex === 0 ? "/image/s2.png" : "/image/s1.png"}></Img>
+          <Img src={imageIndex === 0 ? "/image/s2.png" : "/image/s1.png"}
+            
+          ></Img>
         </WordAndMean>
 
 

@@ -10,6 +10,7 @@ export const HorizonBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top:-100px;
 `;
 export const InputBlock = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ export const InputBlock = styled.div`
   top: 350px;
 `;
 export const WordAndMeanBlock = styled(HorizonBlock)`
-    max-height: 800px; // 원하는 높이로 설정
+    max-height: 400px; // 원하는 높이로 설정
     overflow: hidden;
   overflow-y: scroll;
   -ms-overflow-style:none;

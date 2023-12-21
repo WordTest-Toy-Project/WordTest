@@ -6,7 +6,6 @@ import {
   BottomRow,
   ExampleInput,
   HorizonBlock,
-  NumInput,
   Text,
   InputBlock,
   WordAndMeanBlock,
@@ -79,9 +78,9 @@ export default function Test() {
       <Header $back={true} $title={false} $addWord={false} $gear={true} />
       <Title title={"Word Test"} />
       <InputBlock>
-        <Text style={{ position: "absolute", top: "-60px" }}>문제 수 입력</Text>
-        <NumInput type={"text"} maxLength={3}></NumInput>
-        <Text>문제</Text>
+        {/* <Text style={{ position: "absolute", top: "-60px" }}>문제 수 입력</Text> */}
+        {/* <NumInput type={"text"} maxLength={3}></NumInput> */}
+        <Text>시험은 총 10문제</Text>
       </InputBlock>
       
       <HorizonBlock>

@@ -3,13 +3,12 @@ import Text from "../../components/table/Text";
 
 import { WordContainer, TableContainer } from "./style";
 
-export default function WordTable({ storedUser, changeInfo }) {
-  
+export default function WordTable({ storedUser }) {
   return (
     <WordContainer>
       <Text />
       <TableContainer>
-        <Table storedUser={storedUser} changeInfo={changeInfo} />
+        <Table storedUser={storedUser} />
       </TableContainer>
     </WordContainer>
   );

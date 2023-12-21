@@ -45,21 +45,24 @@ const TestStart = () => {
   };
 console.log("현재 정답 상태:", answers);
   const handleAnswerSubmit = () => {
-    if (!wordQuiz) {
-      return;
-    }
+  if (!wordQuiz) {
+    return;
+  }
 
-    const newResult = wordQuiz.map((wordObj, index) => {
-      return {
-        word: wordObj.word,
-        meaning: wordObj.meaning,
-        is_wrong: wordObj.meaning !== answers[index],
-      };
-    });
-    setResult(newResult);
-    localStorage.setItem("answer", JSON.stringify(answers));
-    navigate('/test-result');
-  };
+  const newResult = wordQuiz.map((wordObj, index) => {
+    const isWrong = wordObj.meaning !== answers[index];
+    return {
+      word: wordObj.word,
+      meaning: wordObj.meaning,
+      is_wrong: isWrong,
+    };
+  });
+
+  setResult(newResult);
+  localStorage.setItem("result", JSON.stringify(newResult)); // Save updated result to local storage
+  navigate('/test-result');
+};
+
 
   return (
     <>

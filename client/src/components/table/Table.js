@@ -8,9 +8,9 @@ import {
   Img,
 } from "./style";
 
-export default function Table({ storedUser, changeInfo }) {
+export default function Table({ storedUser }) {
+  
   const [deletedUserId, setDeletedUserId] = useState(null);
-
   useEffect(() => {
     if (deletedUserId !== null) {
       const updatedUser = storedUser.filter((_, index) => index !== deletedUserId);
@@ -23,7 +23,7 @@ export default function Table({ storedUser, changeInfo }) {
       {storedUser.map((test, index) => (
         <TableContainer key={index}>
           <Row0>
-            <Image test={test} changeInfo={changeInfo} userId={index} onDelete={() => setDeletedUserId(index)} />
+            <Image test={test} userId={index} />
           </Row0>
           <Row1>{test.word}</Row1>
           <Row2>{test.meaning}</Row2>
@@ -43,10 +43,6 @@ export default function Table({ storedUser, changeInfo }) {
 
 // Image 컴포넌트
 function Image(props) {
-  const userId = props.userId;
-  function scrapHandler() {
-    props.changeInfo(userId);
-  }
 
-  return <Img $isScrap={props.test.is_scrap} onClick={scrapHandler} />;
+  return <Img $isScrap={props.test.is_scrap} />;
 }

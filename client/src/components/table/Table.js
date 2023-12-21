@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import {
   TableContainer,
   Row0,
@@ -7,25 +8,30 @@ import {
   Row3,
   Img,
 } from "./style";
-import sampleJson from "../../sample.json";
+
 
 export default function Table({ storedUser }) {
-  
   const [deletedUserId, setDeletedUserId] = useState(null);
+  const [filteredUser, setFilteredUser] = useState(storedUser);
+
   useEffect(() => {
     if (deletedUserId !== null) {
-      
-      const updatedWords = sampleJson[0].words.filter((_, index) => index !== deletedUserId);
-      
-      sampleJson[0].words.pop(updatedWords);
-      localStorage.setItem("sampleJson", JSON.stringify(sampleJson));
-
+      // 삭제된 사용자를 필터링하여 상태 업데이트
+      setFilteredUser((prevUsers) =>
+        prevUsers.filter((_, index) => index !== deletedUserId)
+      );
     }
-  }, []);
-  console.log(sampleJson[0].words)
+  }, [deletedUserId]);
+  const handleDelete = (index) => {
+    // 삭제된 사용자의 인덱스를 설정하여 useEffect를 트리거
+    setDeletedUserId(index);
+  };
+
+  console.log(filteredUser);
+  console.log(deletedUserId);
   return (
     <>
-      {storedUser.map((test, index) => (
+      {filteredUser.map((test, index) => (
         <TableContainer key={index}>
           <Row0>
             <Image test={test} userId={index} />
@@ -37,7 +43,7 @@ export default function Table({ storedUser }) {
               src="./image/xbtn.png"
               alt="삭제"
               width="35px"
-              onClick={() => setDeletedUserId(index)}
+              onClick={() => handleDelete(index)}
             />
           </Row3>
         </TableContainer>
@@ -48,6 +54,5 @@ export default function Table({ storedUser }) {
 
 // Image 컴포넌트
 function Image(props) {
-
   return <Img $isScrap={props.test.is_scrap} />;
 }

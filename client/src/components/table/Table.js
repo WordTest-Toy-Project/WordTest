@@ -1,12 +1,29 @@
-import { TableContainer, Row0, Row1, Row2, Row3, Img } from "./style";
+import React, { useEffect, useState } from "react";
+import {
+  TableContainer,
+  Row0,
+  Row1,
+  Row2,
+  Row3,
+  Img,
+} from "./style";
 
 export default function Table({ storedUser, changeInfo }) {
+  const [deletedUserId, setDeletedUserId] = useState(null);
+
+  useEffect(() => {
+    if (deletedUserId !== null) {
+      const updatedUser = storedUser.filter((_, index) => index !== deletedUserId);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+    }
+  }, [deletedUserId, storedUser]);
+
   return (
     <>
       {storedUser.map((test, index) => (
         <TableContainer key={index}>
           <Row0>
-            <Image test={test} changeInfo={changeInfo} />
+            <Image test={test} changeInfo={changeInfo} userId={index} onDelete={() => setDeletedUserId(index)} />
           </Row0>
           <Row1>{test.word}</Row1>
           <Row2>{test.meaning}</Row2>
@@ -15,6 +32,7 @@ export default function Table({ storedUser, changeInfo }) {
               src="./image/xbtn.png"
               alt="삭제"
               width="35px"
+              onClick={() => setDeletedUserId(index)}
             />
           </Row3>
         </TableContainer>
@@ -25,8 +43,10 @@ export default function Table({ storedUser, changeInfo }) {
 
 // Image 컴포넌트
 function Image(props) {
-  const scrapHandler = () => {
-    props.changeInfo(props.test.id);
+  const userId = props.userId;
+  function scrapHandler() {
+    props.changeInfo(userId);
   }
-  return <Img  $isScrap={props.test.is_scrap} onClick={scrapHandler}/>;
+
+  return <Img $isScrap={props.test.is_scrap} onClick={scrapHandler} />;
 }

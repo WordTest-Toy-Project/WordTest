@@ -4,7 +4,7 @@ import Text from "../../components/table/Text";
 import { WordContainer, TableContainer } from "./style";
 
 export default function WordTable({ storedUser, changeInfo }) {
-
+  
   return (
     <WordContainer>
       <Text />

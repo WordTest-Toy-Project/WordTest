@@ -19,6 +19,9 @@ const TestStart = () => {
   const [answers, setAnswers] = useState(Array(wordQuiz.length).fill(''));
   const [result, setResult] = useState([]);
   console.log(result);
+  if(user === null){
+    setUser(user);
+  }
   useEffect(() => {
     if (user && user.words) {
       const shuffledWords = [...user.words];
@@ -28,13 +31,9 @@ const TestStart = () => {
       }
 
       setWordQuiz(shuffledWords);
+      setAnswers(Array(shuffledWords.length).fill(''));
     }
   }, [user]);
-
-  if (user === null) {
-    setUser(user);
-    navigate("/");
-  }
 
   const handleInputChange = (value, index) => {
     setAnswers((prevAnswers) => {
@@ -59,6 +58,7 @@ console.log("현재 정답 상태:", answers);
     });
     setResult(newResult);
     localStorage.setItem("answer", JSON.stringify(answers));
+    navigate('/test-result');
   };
 
   return (

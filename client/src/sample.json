@@ -60,6 +60,27 @@
           "meaning": "고양이",
           "is_wrong": false,
           "is_scrap": false
+        }, 
+        {
+          "id": 8,
+          "word": "phone", 
+          "meaning": "폰", 
+          "is_wrong": false,
+          "is_scrap": false
+        },
+        {
+          "id": 9,
+          "word": "banana", 
+          "meaning": "바나나", 
+          "is_wrong": false,
+          "is_scrap": false
+        },
+        {
+          "id": 10,
+          "word": "car", 
+          "meaning": "자동차", 
+          "is_wrong": false,
+          "is_scrap": false
         }
       ]
     },

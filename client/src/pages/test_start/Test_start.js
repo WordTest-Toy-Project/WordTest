@@ -68,10 +68,10 @@ console.log("현재 정답 상태:", answers);
     <>
       <Header $back={true} $title={false} $addWord={false} $gear={true} />
       <Title title={"Word Test"} />
-      <Text>{wordQuiz.length} 문제</Text>
+      <Text>10 문제</Text>
 
       <WordOrMeanBlock>
-        {wordQuiz.map((wordObj, index) => (
+        {wordQuiz.slice(0,10).map((wordObj, index) => (
           <div key={index}>
             <WordOrMean>{`${index + 1}. ${wordObj.word}`}</WordOrMean>
             <InputText

@@ -29,6 +29,13 @@ export default function Test() {
 
   // 단어 study에 추가
   const handleRegisterClick = () => {
+    
+    const isAnyEmpty = addWords.some((wordObj) => !wordObj.word || !wordObj.meaning);
+
+    if (isAnyEmpty) {
+      alert("단어와 뜻을 모두 입력해주세요.");
+      return; // Stop execution if any input is empty
+    }  
     const newWords = addWords.map((wordObj, index) => ({
       id: sampleJson[0].words.length + index,
       word: wordObj.word,

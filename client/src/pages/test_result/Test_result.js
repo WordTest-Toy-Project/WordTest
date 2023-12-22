@@ -1,12 +1,12 @@
 import Header from "../../components/header/Header";
 import Title from "../../components/title/Title";
 import PuppleInputButton from "../../components/button/PuppleButton/PuppleInputButton";
-import sampleJson from "../../sample.json";
+
 import { Link } from "react-router-dom";
 import { Desc, Result, WrongWord, WordLength, BottomRow } from "./style";
 
 export default function Test_result() {
-  const storedResult = sampleJson[0].words;//JSON.parse(localStorage.getItem('result')) || [];
+  const storedResult = JSON.parse(localStorage.getItem('result')) || [];
   const wrongAnswers = Array.isArray(storedResult) ? storedResult.filter(user => user.is_wrong === true) : [];
   console.log(wrongAnswers);
 

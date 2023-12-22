@@ -31,7 +31,7 @@ export const WordAndMeanBlock = styled.div`
   &::-webkit-scrollbar{
     display:none;
   }
-
+  
 `;
 
 export const InputText = styled.input`

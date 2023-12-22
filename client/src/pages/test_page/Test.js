@@ -102,8 +102,7 @@ export default function Test() {
         {addWords.map((wordObj, index) => (
           <div key={index} style={{
             display: "flex",
-            flexDirection: "row",
-           
+            flexDirection: "row",  
           }}>
             
               <WordAndMeanInput

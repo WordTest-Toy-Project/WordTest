@@ -1,11 +1,3 @@
-# Word Test
-
-<div align="center">
-
-
-
-
-</div>
 
 # Word Test
 > **리액트로 만든 토이 프로젝트** <br/> **개발기간: 2023.12.11 ~ 2023.12.22**
@@ -14,10 +6,11 @@
 ## 웹개발팀 소개
 
 |     윤주원        |  이지성                 |                                                                                                                               
-| :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: | 
-|       |                          |                     
-|   [@JooWon Yun](https://github.com/morningB)   |  [@Ji-Sung05](https://github.com/Ji-Sung05)   |   
+| :-----------------------------: | :---------------: | 
+|  <img width="160px" src="https://github.com/WordTest-Toy-Project/WordTest/assets/114423035/72fbc398-8684-4d93-8fe4-d9444617905b" /> | <img width="160px" src="https://github.com/WordTest-Toy-Project/WordTest/assets/114423035/7cff9947-24f1-4da3-80f0-605baff9cdfc"/>       |                     
+|   [@JooWon_Yun](https://github.com/morningB)   |  [@Ji-Sung05](https://github.com/Ji-Sung05)   |   
 | 순천향대학교 의료IT공학과 3학년 | 순천향대학교 의료IT공학과 3학년 |  
+
 
 ## 프로젝트 소개
 

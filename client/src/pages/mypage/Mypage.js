@@ -28,6 +28,8 @@ export default function Mypage({ username }) {
   const handleWordAndMeanToggle = () => {
     // Toggle between different images
     setImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+    const toggledValue = !imageIndex;
+  localStorage.setItem("wordAndMeanToggle", JSON.stringify(toggledValue));
   };
 
   const handleDeleteAccount = () => {

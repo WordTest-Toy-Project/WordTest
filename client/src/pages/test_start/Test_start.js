@@ -18,10 +18,12 @@ const TestStart = () => {
   const [wordQuiz, setWordQuiz] = useState([]);
   const [answers, setAnswers] = useState(Array(wordQuiz.length).fill(''));
   const [result, setResult] = useState([]);
+  const [displayWord, setDisplayWord] = useState(true); // 기본적으로는 word 표시
   console.log(result);
-  if(user === null){
-    setUser(user);
+  if(user === null) {
+    setUser();
   }
+
   useEffect(() => {
     if (user && user.words) {
       const allWords = [...user.words,...sampleJson[0].words]
@@ -43,28 +45,34 @@ const TestStart = () => {
       newAnswers[index] = value;
       return newAnswers;
     });
-    
   };
-console.log("현재 정답 상태:", answers);
+
   const handleAnswerSubmit = () => {
-  if (!wordQuiz) {
-    return;
-  }
+    if (!wordQuiz) {
+      return;
+    }
 
-  const newResult = wordQuiz.map((wordObj, index) => {
-    const isWrong = wordObj.meaning !== answers[index];
-    return {
-      word: wordObj.word,
-      meaning: wordObj.meaning,
-      is_wrong: isWrong,
-    };
-  });
+    const newResult = wordQuiz.map((wordObj, index) => {
+      const isWrong = displayWord ? (wordObj.meaning !== answers[index]) : (wordObj.word !== answers[index]);
+      return {
+        word: wordObj.word,
+        meaning: wordObj.meaning,
+        is_wrong: isWrong,
+      };
+    });
 
-  setResult(newResult);
-  localStorage.setItem("result", JSON.stringify(newResult)); // Save updated result to local storage
-  navigate('/test-result');
-};
+    setResult(newResult);
+    localStorage.setItem("result", JSON.stringify(newResult)); // Save updated result to local storage
+    navigate('/test-result');
+  };
 
+  useEffect(() => {
+    const storedToggleState = localStorage.getItem("wordAndMeanToggle");
+    if (storedToggleState) {
+      const toggleState = JSON.parse(storedToggleState);
+      setDisplayWord(toggleState);
+    }
+  }, []);
 
   return (
     <>
@@ -73,9 +81,9 @@ console.log("현재 정답 상태:", answers);
       <Text>10 문제</Text>
 
       <WordOrMeanBlock>
-        {wordQuiz.slice(0,10).map((wordObj, index) => (
+        {wordQuiz.slice(0, 10).map((wordObj, index) => (
           <div key={index}>
-            <WordOrMean>{`${index + 1}. ${wordObj.word}`}</WordOrMean>
+            <WordOrMean>{`${index + 1}. ${displayWord ? wordObj.word : wordObj.meaning}`}</WordOrMean>
             <InputText
               value={answers[index]}
               onChange={(e) => handleInputChange(e.target.value, index)}

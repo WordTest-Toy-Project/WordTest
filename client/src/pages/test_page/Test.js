@@ -102,7 +102,7 @@ export default function Test() {
             display: "flex",
 
             flexDirection: "row",
-           
+            
           }}>
               <WordAndMeanInput
                 className={"w"}

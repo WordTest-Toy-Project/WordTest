@@ -10,7 +10,7 @@
           "id": 0,
           "word": "apple",
           "meaning": "사과",
-          "is_wrong": true,
+          "is_wrong": false,
           "is_scrap": false
         },
         {
@@ -18,13 +18,13 @@
           "word": "book",
           "meaning": "책",
           "is_wrong": false,
-          "is_scrap": true
+          "is_scrap": false
         },
         {
           "id": 2,
           "word": "computer",
           "meaning": "컴퓨터",
-          "is_wrong": true,
+          "is_wrong": false,
           "is_scrap": false
         },
         {
@@ -38,8 +38,8 @@
           "id": 4,
           "word": "island",
           "meaning": "섬",
-          "is_wrong": true,
-          "is_scrap": true
+          "is_wrong": false,
+          "is_scrap": false
         },
         {
           "id": 5,
@@ -53,7 +53,7 @@
           "word": "elephant",
           "meaning": "코끼리",
           "is_wrong": false,
-          "is_scrap": true
+          "is_scrap": false
         },
         {
           "id": 7,
@@ -138,7 +138,7 @@
           "word": "mountain", 
           "meaning": "산", 
           "is_wrong": false,
-          "is_scrap": true
+          "is_scrap": false
         },
         {
           "id": 7,
@@ -152,7 +152,7 @@
           "word": "pencil", 
           "meaning": "연필", 
           "is_wrong": false,
-          "is_scrap": true
+          "is_scrap": false
         },
         {
           "id": 9,

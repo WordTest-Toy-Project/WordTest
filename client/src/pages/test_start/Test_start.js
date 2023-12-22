@@ -10,37 +10,36 @@ import InputText from "../../components/input/InputText";
 import Header from "../../components/header/Header";
 import PuppleInputButton from "../../components/button/PuppleButton/PuppleInputButton";
 import Title from "../../components/title/Title";
-import sampleJson from "../../sample.json"
+import sampleJson from "../../sample.json";
+
 const TestStart = () => {
   const navigate = useNavigate();
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(storedUser);
   const [wordQuiz, setWordQuiz] = useState([]);
-  const [answers, setAnswers] = useState(Array(wordQuiz.length).fill(''));
+  const [answers, setAnswers] = useState([]);
   const [result, setResult] = useState([]);
-  const [displayWord, setDisplayWord] = useState(true); // 기본적으로는 word 표시
-  console.log(result);
-  if(user === null) {
+  const [displayWord, setDisplayWord] = useState(true);
+  if(user === null){
     setUser();
   }
-
   useEffect(() => {
     if (user && user.words) {
-      const allWords = [...user.words,...sampleJson[0].words];
+      const allWords = [...user.words, ...sampleJson[0].words];
       const uniqueWordsSet = new Set(allWords.map(wordObj => wordObj.word));
       const uniqueWords = Array.from(uniqueWordsSet, word => allWords.find(obj => obj.word === word));
       const shuffledWords = [...uniqueWords];
-      console.log(shuffledWords);
+
       for (let i = shuffledWords.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledWords[i], shuffledWords[j]] = [shuffledWords[j], shuffledWords[i]];
       }
 
-      setWordQuiz(shuffledWords);
-      setAnswers(Array(shuffledWords.length).fill(''));
+      setWordQuiz(shuffledWords.slice(0, 10));
+      setAnswers(Array(10).fill(''));
     }
   }, [user]);
-  
+
   const handleInputChange = (value, index) => {
     setAnswers((prevAnswers) => {
       const newAnswers = [...prevAnswers];
@@ -50,12 +49,15 @@ const TestStart = () => {
   };
 
   const handleAnswerSubmit = () => {
-    if (!wordQuiz) {
+    if (!wordQuiz.length) {
       return;
     }
 
     const newResult = wordQuiz.map((wordObj, index) => {
-      const isWrong = displayWord ? (wordObj.meaning !== answers[index]) : (wordObj.word !== answers[index]);
+      const isWrong = displayWord
+        ? wordObj.meaning !== answers[index]
+        : wordObj.word !== answers[index];
+
       return {
         word: wordObj.word,
         meaning: wordObj.meaning,
@@ -64,9 +66,14 @@ const TestStart = () => {
     });
 
     setResult(newResult);
-    localStorage.setItem("result", JSON.stringify(newResult)); // Save updated result to local storage
-    navigate('/test-result');
   };
+
+  useEffect(() => {
+    if (result.length > 0) {
+      localStorage.setItem("result", JSON.stringify(result));
+      navigate('/test-result', { state: { result } });
+    }
+  }, [result, navigate]);
 
   useEffect(() => {
     const storedToggleState = localStorage.getItem("wordAndMeanToggle");
@@ -83,7 +90,7 @@ const TestStart = () => {
       <Text>10 문제</Text>
 
       <WordOrMeanBlock>
-        {wordQuiz.slice(0, 10).map((wordObj, index) => (
+        {wordQuiz.map((wordObj, index) => (
           <div key={index}>
             <WordOrMean>{`${index + 1}. ${displayWord ? wordObj.word : wordObj.meaning}`}</WordOrMean>
             <InputText 

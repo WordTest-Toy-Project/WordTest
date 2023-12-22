@@ -19,9 +19,11 @@ const TestStart = () => {
   const [wordQuiz, setWordQuiz] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [result, setResult] = useState([]);
-  const [displayWord, setDisplayWord] = useState(true);
+  const storedToggleState = JSON.parse(localStorage.getItem("wordAndMeanToggle"));
+  const [displayWord, setDisplayWord] = useState(storedToggleState);
   if(user === null){
     setUser();
+    setDisplayWord();
   }
   useEffect(() => {
     if (user && user.words) {
@@ -74,14 +76,6 @@ const TestStart = () => {
       navigate('/test-result', { state: { result } });
     }
   }, [result, navigate]);
-
-  useEffect(() => {
-    const storedToggleState = localStorage.getItem("wordAndMeanToggle");
-    if (storedToggleState) {
-      const toggleState = JSON.parse(storedToggleState);
-      setDisplayWord(toggleState);
-    }
-  }, []);
 
   return (
     <>

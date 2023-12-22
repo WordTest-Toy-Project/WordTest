@@ -26,8 +26,10 @@ const TestStart = () => {
 
   useEffect(() => {
     if (user && user.words) {
-      const allWords = [...user.words,...sampleJson[0].words]
-      const shuffledWords = [...allWords];
+      const allWords = [...user.words,...sampleJson[0].words];
+      const uniqueWordsSet = new Set(allWords.map(wordObj => wordObj.word));
+      const uniqueWords = Array.from(uniqueWordsSet, word => allWords.find(obj => obj.word === word));
+      const shuffledWords = [...uniqueWords];
       console.log(shuffledWords);
       for (let i = shuffledWords.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -84,7 +86,7 @@ const TestStart = () => {
         {wordQuiz.slice(0, 10).map((wordObj, index) => (
           <div key={index}>
             <WordOrMean>{`${index + 1}. ${displayWord ? wordObj.word : wordObj.meaning}`}</WordOrMean>
-            <InputText
+            <InputText 
               value={answers[index]}
               onChange={(e) => handleInputChange(e.target.value, index)}
             />

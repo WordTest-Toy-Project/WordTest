@@ -21,7 +21,7 @@ export const WordAndMeanBlock = styled.div`
   flex-direction: column;
   align-items: center;
   max-width: 900px;
-  height: 600px;
+  max-height: 400px;
   margin: 0 auto;
   margin-top: 70px;
   border: 1px solid #ccc;

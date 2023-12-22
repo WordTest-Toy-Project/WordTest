@@ -33,19 +33,11 @@ For building and running the application you need:
 
 - [Node.js 14.19.3](https://nodejs.org/ca/blog/release/v14.19.3/)
 - [Npm 9.2.0](https://www.npmjs.com/package/npm/v/9.2.0)
-- [Strapi 3.6.6](https://www.npmjs.com/package/strapi/v/3.6.6)
 
 ### Installation
 ``` bash
 $ git clone https://github.com/Voluntain-SKKU/Voluntain-2nd.git
 $ cd Voluntain-2nd
-```
-#### Backend
-```
-$ cd strapi-backend
-$ nvm use v.14.19.3
-$ npm install
-$ npm run develop
 ```
 
 #### Frontend
@@ -71,15 +63,10 @@ $ npm run dev
 ### Development
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=Javascript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Strapi](https://img.shields.io/badge/Strapi-2F2E8B?style=for-the-badge&logo=Strapi&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=Next.js&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white)
-![Material UI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=MUI&logoColor=white)
 
 ### Communication
-![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white)
 ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white)
-![GoogleMeet](https://img.shields.io/badge/GoogleMeet-00897B?style=for-the-badge&logo=Google%20Meet&logoColor=white)
+
 
 ---
 ## 화면 구성 📺
@@ -92,15 +79,18 @@ $ npm run dev
 ---
 ## 주요 기능 📦
 
-### ⭐️ 강좌 선택 및 강의 영상 시청 기능
-- Scratch, Python 2개 강좌 및 각 강좌마다 10개 가량의 강의 영상 제공
-- 추후 지속적으로 강좌 추가 및 업로드 예정
+### ⭐️ 단어 추가 기능
+- 단어와 뜻을 입력하여 SampleJson에 단어 추가
 
-### ⭐️ 강의 관련 및 단체에 대한 자유로운 댓글 작성 가능
-- Disqus를 이용하여 강의 관련 질문이나 단체에 대한 질문 작성 가능
+### ⭐️ 스크랩 및 삭제 기능
+- 스크랩 : 즐겨찾기에 스크랩한 단어 추가
+- 삭제 : 단어 삭제 기능 
 
-### ⭐️ 이어 학습하기 기능
-- Cookie 기능을 이용하여 이전에 학습했던 내용 이후부터 바로 학습 가능
+### ⭐️ 단어 시험 보기 기능
+- 추가한 단어 중 10문제를 랜덤으로 출제하여 시험을 보고 결과 페이지에서 틀린 단어를 보여줌
+
+### ⭐️ 시험 단어 / 뜻 변경 기능
+- 토글 기능을 사용하여 시험볼 때 보여줄 단어를 선택
 
 ---
 ## 아키텍쳐

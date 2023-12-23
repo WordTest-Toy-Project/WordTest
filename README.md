@@ -72,7 +72,10 @@ $ npm run dev
 ## 화면 구성 📺
 | 메인 페이지  |  단어장 페이지   |
 | :-------------------------------------------: | :------------: |
-| <p style="width: 200px">![main](https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/4b389d5d-bb8d-40d7-9f96-57dae4b49a88)<p/>  | <img src="./image/study.png" width="200" /> |  
+| <p style="width: 200px">
+  <img src="https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/4b389d5d-bb8d-40d7-9f96-57dae4b49a88" alt="main" style="max-width: 100%; height: auto;">
+</p>
+  | <img src="./image/study.png" width="200" /> |  
 | 테스트 페이지   |  테스트 결과 페이지   |  
 |  <img src="./image/test.png" width="200" />  |  <img src="./image/test_result.png" width="200" />     |
 

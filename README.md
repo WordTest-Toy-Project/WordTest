@@ -31,8 +31,8 @@ Our website supports the following component.
 ### Requirements
 For building and running the application you need:
 
-- [Node.js 14.19.3](https://nodejs.org/ca/blog/release/v14.19.3/)
-- [Npm 9.2.0](https://www.npmjs.com/package/npm/v/9.2.0)
+- [Node.js 21.1.0](https://nodejs.org/ca/blog/release/v21.1.0/)
+- [Npm 10.2.0](https://www.npmjs.com/package/npm/v/10.2.0)
 
 ### Installation
 ``` bash

@@ -50,7 +50,7 @@ $ npm run dev
 
 ---
 
-## Stacks 🐈
+## Stacks 🧑‍💻
 
 ### Environment
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white)
@@ -70,11 +70,11 @@ $ npm run dev
 
 ---
 ## 화면 구성 📺
-| 메인 페이지  |  소개 페이지   |
+| 메인 페이지  |  단어장 페이지   |
 | :-------------------------------------------: | :------------: |
-|   |  |  
-| 강좌 소개 페이지   |  강의 영상 페이지   |  
-|    |       |
+| <img src="./image/main.png" width="200" />  | <img src="./image/study.png" width="200" /> |  
+| 테스트 페이지   |  테스트 결과 페이지   |  
+|  <img src="./image/test.png" width="200" />  |  <img src="./image/test_result.png" width="200" />     |
 
 ---
 ## 주요 기능 📦

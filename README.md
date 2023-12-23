@@ -36,16 +36,13 @@ For building and running the application you need:
 
 ### Installation
 ``` bash
-$ git clone https://github.com/Voluntain-SKKU/Voluntain-2nd.git
-$ cd Voluntain-2nd
+$ git clone https://github.com/WordTest-Toy-Project/WordTest.git
 ```
 
 #### Frontend
 ```
-$ cd voluntain-app
-$ nvm use v.14.19.3
 $ npm install 
-$ npm run dev
+$ npm start
 ```
 
 ---

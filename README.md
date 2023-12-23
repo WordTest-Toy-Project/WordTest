@@ -36,16 +36,13 @@ For building and running the application you need:
 
 ### Installation
 ``` bash
-$ git clone https://github.com/Voluntain-SKKU/Voluntain-2nd.git
-$ cd Voluntain-2nd
+$ git clone https://github.com/WordTest-Toy-Project/WordTest.git
 ```
 
 #### Frontend
 ```
-$ cd voluntain-app
-$ nvm use v.14.19.3
 $ npm install 
-$ npm run dev
+$ npm start
 ```
 
 ---
@@ -70,12 +67,13 @@ $ npm run dev
 
 ---
 ## 화면 구성 📺
-| 메인 페이지  |  단어장 페이지   |
-| :-------------------------------------------: | :------------: |
-  <img src="https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/41bf660b-3ff5-4277-8523-4561a2b94df2" width="200" />
-  | <img src="https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/87580476-d7fc-491b-8fdf-3bd8d4f67660" width="200" /> |  
-| 테스트 페이지   |  테스트 결과 페이지   |  
-|  <img src="https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/519f76bd-c9d9-476c-90b6-4d30c44c9449" width="200" />  |  <img src="https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/474b82df-2317-4df5-9af6-41f0eab684cc" width="200" />     |
+| 메인 페이지                        | 단어장 페이지                      |
+| :---------------------------------: | :--------------------------------: |
+| <img src="https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/41bf660b-3ff5-4277-8523-4561a2b94df2" width="300" /> | <img src="https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/87580476-d7fc-491b-8fdf-3bd8d4f67660" width="300" /> |
+
+| 테스트 페이지                       | 테스트 결과 페이지                  |
+| :---------------------------------: | :----------------------------------: |
+| <img src="https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/519f76bd-c9d9-476c-90b6-4d30c44c9449" width="300" /> | <img src="https://github.com/WordTest-Toy-Project/WordTest/assets/115493374/474b82df-2317-4df5-9af6-41f0eab684cc" width="300" /> |
 
 ---
 ## 주요 기능 📦

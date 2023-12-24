@@ -15,17 +15,8 @@
 
 ## 프로젝트 소개
 
-발룬테인은 온라인 코딩 교육 봉사를 하는 단체입니다. 기존에 소프트웨어학과에서 월드프렌즈 ICT 봉사단이라는 개발도상국에서 약 학 달 간 코딩 교육 봉사를 하는 활동이 있었는데, 봉사가 일회성으로 끝나는 점에 아쉬움을 느껴 지속적인 봉사를 하고자 만들어졌습니다. 발룬테인에서는 스크래치, 파이썬 등 프로그래밍 언어에 관한 강의를 제공하고, 질의응답과 라이브 세션을 통해 한국 학생과 외국 학생 간에 소통이 이루어집니다.
-
-#### Voluntain will share the knowledge of programming.
-You can take easy-to-understand lectures created by our team, including Scratch and Python. Also, improve your understanding and application skills of programming with exercise questions in the lecture videos.
-
-#### Voluntain's website will give you a learning-friendly environment.
-
-Our website supports the following component.
-1. Various online lectures with detailed descriptions and exercise questions.
-2. Q&A section to ask questions freely.
-3. Function to check the lecture you watched recently.
+리액트 토이 프로젝트로 영어 단어를 추가해서 공부하고 시험까지 볼 수 있는 프로젝트를 만들었다. 
+서버는 sampleJson으로 대체했고 기초 개념인 useState 훅을 사용하여 상태관리를 했다.
 
 ## 시작 가이드
 ### Requirements

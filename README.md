@@ -127,10 +127,10 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
       .then(response => response.json())
       .then(json => console.log(json))
 ```
-(https://jsonplaceholder.typicode.com/)
-
+https://jsonplaceholder.typicode.com/
+<br />
 2. json-server 사용
-(https://www.npmjs.com/package/json-server)
-
+https://www.npmjs.com/package/json-server
+<br />
 JSON Generator 를 사용해서 JSON 데이터를 생성할 수 있다.
-(https://json-generator.com/)
+https://json-generator.com/

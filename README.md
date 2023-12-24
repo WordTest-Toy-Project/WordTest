@@ -130,7 +130,9 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 https://jsonplaceholder.typicode.com/
 <br />
 2. json-server 사용
+<br />
 https://www.npmjs.com/package/json-server
 <br />
 JSON Generator 를 사용해서 JSON 데이터를 생성할 수 있다.
+<br />
 https://json-generator.com/

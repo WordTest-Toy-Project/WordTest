@@ -118,3 +118,17 @@ C:.
 └─styles
 ```
 ## 회고록
+서버를 구축하지 못해 sampleJson 을 만들어서 진행했는데 sampleJson 에 CRUD 하는 방법과 컴포넌트 간에 데이터를 전달하는 방법, 폴더 구조를 나누는 방법 등이 아직 많이 미숙한 것 같다.
+리팩토링할 때 리덕스 툴킷과 커스텀 훅 등을 사용하여 좀 더 효율적이고 깨끗한 코드를 작성해야 겠다.
+sampleJson을 좀 더 잘 사용하기 위해 알아보다가 백엔드 없이 프론트 혼자서 서버를 쉽게 구축해서 사용할 수 있는 방법을 알게되었다.
+1. jsonplaceholder 사용
+```javascript
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+```
+<a href="https://jsonplaceholder.typicode.com/" />
+2. json-server 사용
+<a href="https://www.npmjs.com/package/json-server" />
+JSON Generator 를 사용해서 JSON 데이터를 생성할 수 있다.
+<a href="https://json-generator.com/" />

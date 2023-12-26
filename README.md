@@ -54,10 +54,8 @@ $ npm start
 
 ### Communication
 ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
-
-
----
 ## 화면 구성 📺
 | 메인 페이지                        | 단어장 페이지                      |
 | :---------------------------------: | :--------------------------------: |

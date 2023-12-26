@@ -13,9 +13,10 @@
 
 
 ## 프로젝트 소개
-
-리액트 토이 프로젝트로 영어 단어를 추가해서 공부하고 시험까지 볼 수 있는 프로젝트를 만들었다. 
-서버는 sampleJson으로 대체했고 기초 개념인 useState 훅을 사용하여 상태관리를 했다.
+Word Test는 사용자 단어를 외우다가 스스로 시험이 필요하다고 생각할 때 사용할 수 있는 서비스다. 토익 및 다른 영어 시험을 준비하며 스스로 진행하고 싶은 단어테스트가 찾기 힘든 아쉬움으로 시작했다.  자신이 입력한 단어 중 10개를 뽑아서 랜덤으로 테스트를 진행하며, 테스트를 제출하게 되면 오답 단어와 뜻이 자신의 부족한 부분을 파악할 수 있다.  <br> 
+추가로 자신이 원하는 단어는 스크랩 기능으로 확인할 수 있다.  <br>
+서버는 sampleJson으로 대체했고 기초 개념인 useState 훅을 사용하여 상태관리를 했다.  <br>
+ 
 
 ## 시작 가이드
 ### Requirements
@@ -53,6 +54,7 @@ $ npm start
 
 ### Communication
 ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white)
+
 
 
 ---
